@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EDAPA — where aerial person detection fails, measured</title>
+<meta name="description" content="EDAPA renders aerial scenes where the ground truth is exact — down to the part of a person the camera cannot see — and uses them to measure where person detectors fail, and why.">
+<link rel="canonical" href="https://edapa-ro.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EDAPA">
+<meta property="og:url" content="https://edapa-ro.github.io/">
+<meta property="og:title" content="EDAPA — where aerial person detection fails, measured">
+<meta property="og:description" content="Aerial scenes whose ground truth is exact, down to the part of a person the camera cannot see, used to measure where person detectors fail, and why.">
+<meta property="og:image" content="https://edapa-ro.github.io/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A rendered aerial view of a street in Dubrovnik, every person in it marked by a lime bracket.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0b0a">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0b0a'/%3E%3Cpath d='M7 12V7h5M20 7h5v5M25 20v5h-5M12 25H7v-5' fill='none' stroke='%23c6f24e' stroke-width='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%23ff6b35'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+<script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="mast" data-mast>
+  <a class="mast__mark" href="#top" aria-label="EDAPA, back to top">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 12V7h5M20 7h5v5M25 20v5h-5M12 25H7v-5"/><circle cx="16" cy="16" r="2.6"/></svg>
+    <span>EDAPA</span>
+  </a>
+  <nav class="mast__nav" aria-label="Sections">
+    <a href="#layers">Instrument</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#offer">Offer</a>
+    <a href="#work">Work with us</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================================================ HERO -->
+  <section class="hero" id="top" aria-labelledby="hero-title" data-hero>
+    <div class="hero__stage" data-stage>
+      <picture class="hero__still">
+        <img src="assets/frames/dubrovnik-004170/rgb.webp" width="1280" height="960"
+             alt="Rendered aerial view of a stone street in Dubrovnik: café tables, awnings and sixty-three people walking, cycling and sitting.">
+      </picture>
+      <canvas class="hero__gl" data-gl aria-hidden="true"></canvas>
+      <svg class="hero__brackets" data-brackets aria-hidden="true"></svg>
+
+      <p class="wall-cap" data-wall-cap aria-hidden="true">
+        <span class="wall-cap__k">Five places, one wall</span>
+        <span class="wall-cap__n">49,698 frames. 1,525,820 people.</span>
+        <span class="wall-cap__k">Every person in them labelled</span>
+      </p>
+
+      <button type="button" class="zoom-back" data-back>Back to the whole frame</button>
+      <div class="lens-tag" data-lens-tag aria-hidden="true">
+        <span class="lens-tag__layer" data-tag-layer>Hidden part</span>
+        <span class="lens-tag__who" data-tag-who></span>
+      </div>
+
+      <nav class="scenes" aria-label="Place shown">
+        <button type="button" data-scene="0" aria-current="true"><span>01</span>Dubrovnik<i></i></button>
+        <button type="button" data-scene="1"><span>02</span>Cairo<i></i></button>
+        <button type="button" data-scene="2"><span>03</span>Bologna<i></i></button>
+        <button type="button" data-scene="3"><span>04</span>Quarry<i></i></button>
+        <button type="button" data-scene="4"><span>05</span>Farm<i></i></button>
+      </nav>
+      <dl class="hud hud--frame" data-hud>
+        <div><dt>Local time</dt><dd data-hud-time>—</dd></div>
+        <div><dt>Sky</dt><dd data-hud-sky>—</dd></div>
+        <div><dt>Altitude</dt><dd data-hud-alt>—</dd></div>
+        <div><dt>Camera</dt><dd data-hud-cam>—</dd></div>
+        <div><dt>People</dt><dd data-hud-people>—</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Aerial person detection, measured</p>
+      <h1 id="hero-title" class="hero__title">
+        <span class="line"><span>We know where every</span></span>
+        <span class="line"><span>person is.</span></span>
+        <span class="line line--hidden"><span>Even the part the camera <em>can&rsquo;t see.</em></span></span>
+      </h1>
+      <p class="hero__lede">EDAPA builds aerial scenes whose ground truth is exact, and uses them to measure where person detectors fail&nbsp;— and&nbsp;why.</p>
+      <p class="hero__note">Rendered frame, not a photograph. Every person in it is synthetic.</p>
+    </div>
+
+    <div class="hero__controls">
+      <p class="hint" data-hint><span class="hint__desk">Point at a person to read their ground truth · click to close in</span><span class="hint__touch">Tap a person to close in on them</span></p>
+      <div class="modes" role="radiogroup" aria-label="Ground-truth layer shown over the frame" data-modes>
+        <button type="button" role="radio" aria-checked="true"  data-mode="0"><kbd>1</kbd>Hidden part</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="1"><kbd>2</kbd>Each person</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="2"><kbd>3</kbd>Boxes</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="3"><kbd>4</kbd>Skeleton</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="4"><kbd>5</kbd>Distance</button>
+      </div>
+      <p class="legend" data-legend>
+        <span class="sw sw--vis"></span>seen by the camera
+        <span class="sw sw--env"></span>hidden by the scene
+        <span class="sw sw--ppl"></span>hidden by another person
+      </p>
+    </div>
+
+    <a class="scroll-cue" href="#instrument" aria-label="Scroll to the next section"><span></span></a>
+  </section>
+
+  <!-- ============================================================ 01 -->
+  <section class="sect sect--statement" id="instrument" aria-labelledby="s1-title">
+    <header class="sect__head">
+      <p class="sect__num">01</p>
+      <p class="sect__kicker">The instrument</p>
+    </header>
+    <h2 id="s1-title" class="statement reveal">
+      <span>A detector&rsquo;s single score hides where it fails.</span>
+      <span class="dim">We take the failure apart one factor at a time&nbsp;— how small a person appears, what hides them and how much of them is left, the light, the weather&nbsp;— on scenes where the right answer is known to the pixel.</span>
+    </h2>
+    <p class="aside reveal">On four of our five places, an off-the-shelf detector finds <strong>3–7%</strong> of the people who appear 10–17&nbsp;px tall, and <strong>71–83%</strong> of those 47–80&nbsp;px tall. An average over that range describes no one.</p>
+
+    <dl class="figures reveal">
+      <div class="fig">
+        <dt>environments</dt>
+        <dd><span class="fig__n" data-count="5">5</span></dd>
+        <p>A quarry, a farm, Dubrovnik, Bologna and a Cairo market street, each built to be measured.</p>
+      </div>
+      <div class="fig">
+        <dt>aerial frames</dt>
+        <dd><span class="fig__n" data-count="49698">49,698</span></dd>
+        <p>Each corpus went through the same automated review before it was published.</p>
+      </div>
+      <div class="fig">
+        <dt>people labelled</dt>
+        <dd><span class="fig__n" data-count="1525820">1,525,820</span></dd>
+        <p>People come with an exact mask, a visible and a whole-body box, and how much of them is hidden, and by what.</p>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ============================================================ 02 -->
+  <section class="sect sect--layers" id="layers" aria-labelledby="s2-title">
+    <header class="sect__head">
+      <p class="sect__num">02</p>
+      <h2 class="sect__kicker" id="s2-title">What every frame knows</h2>
+    </header>
+    <p class="lead reveal">Six answers for every pixel of every frame, and a label on each that says how we know it.</p>
+
+    <div class="story" data-story>
+      <figure class="story__fig">
+        <div class="story__stack" data-story-stack>
+          <img src="assets/img/layers-1-frame.webp" width="840" height="630" alt="A 280 by 210 pixel crop of the Dubrovnik frame, enlarged: two people at a picnic table, a man in blue, a cyclist and a person in a wheelchair." class="is-shown">
+          <img src="assets/img/layers-2-each-person.webp" width="840" height="630" alt="" loading="lazy">
+          <img src="assets/img/layers-3-boxes.webp" width="840" height="630" alt="" loading="lazy">
+          <img src="assets/img/layers-4-skeleton.webp" width="840" height="630" alt="" loading="lazy">
+          <img src="assets/img/layers-5-hidden-part.webp" width="840" height="630" alt="" loading="lazy">
+          <img src="assets/img/layers-6-distance.webp" width="840" height="630" alt="" loading="lazy">
+        </div>
+        <figcaption class="story__cap"><span data-story-label>01 · The frame</span><span>Dubrovnik, one frame, 280 × 210 px enlarged three times</span></figcaption>
+      </figure>
+
+      <ol class="story__steps">
+        <li class="step" data-step="0">
+          <p class="step__n">01</p>
+          <h3>The frame</h3>
+          <p>What a detector sees: 1280&nbsp;×&nbsp;960, after a modelled camera adds its noise, blur and compression. The clean frame ships beside it, so any effect can be traced to the sensor or to the scene.</p>
+          <p class="step__tag"><span class="k k--prov">provenance</span> sensor settings recorded per frame</p>
+        </li>
+        <li class="step" data-step="1">
+          <p class="step__n">02</p>
+          <h3>Each person</h3>
+          <p>Every person carries an identity from a dedicated render pass&nbsp;— not a colour threshold and not a guess. Two people wearing the same model are still two people.</p>
+          <p class="step__tag"><span class="k k--exact">exact</span> a 32-bit identity per pixel</p>
+        </li>
+        <li class="step" data-step="2">
+          <p class="step__n">03</p>
+          <h3>Two boxes</h3>
+          <p>A box around what the camera sees, and a box around the whole body, including what the table or another person hides.</p>
+          <p class="step__tag"><span class="k k--exact">exact</span> both boxes, from the same passes</p>
+        </li>
+        <li class="step" data-step="3">
+          <p class="step__n">04</p>
+          <h3>Skeleton</h3>
+          <p>Thirteen joints per person, each marked by whether it lands on the person&rsquo;s own pixels or behind something.</p>
+          <p class="step__tag"><span class="k k--exact">exact</span> projected from the rig</p>
+        </li>
+        <li class="step" data-step="4">
+          <p class="step__n">05</p>
+          <h3>The hidden part</h3>
+          <p>How much of each person is out of sight, split into what the scene hides and what other people hide, with the kind of object standing in front.</p>
+          <p class="step__tag"><span class="k k--exact">exact</span> fractions and the who-hides-whom graph</p>
+        </li>
+        <li class="step" data-step="5">
+          <p class="step__n">06</p>
+          <h3>Distance</h3>
+          <p>Depth in metres for every pixel; for every person, how far away they are, how many centimetres a pixel covers on the ground, and how large they appear in angle.</p>
+          <p class="step__tag"><span class="k k--exact">exact</span> from the depth pass and the camera</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="classes reveal">
+      <h3 class="classes__title">Every field says how it was obtained</h3>
+      <dl class="classes__list">
+        <div><dt><span class="k k--exact">exact</span></dt><dd>Read from the simulator&rsquo;s geometry or its identity passes.</dd></div>
+        <div><dt><span class="k k--meas">measured</span></dt><dd>Computed from the pixels, by a published formula.</dd></div>
+        <div><dt><span class="k k--proxy">proxy</span></dt><dd>A useful approximation, labelled as one and never sold as truth.</dd></div>
+        <div><dt><span class="k k--prov">provenance</span></dt><dd>How the frame was made: settings, versions, seeds.</dd></div>
+      </dl>
+      <p class="classes__note">Exact means exact with respect to the simulator, under the checks every capture passes. It is not a claim about the real world; the evidence below is where that question is asked.</p>
+    </div>
+
+    <div class="odd reveal">
+      <div class="odd__head">
+        <p class="odd__n"><span data-count="18">18</span></p>
+        <div>
+          <h3>conditions recorded for every frame</h3>
+          <p>The vocabulary an assurance conversation needs. The most-used real aerial benchmark for people, VisDrone, carries labels for <strong>one</strong> of them; two more could be derived by counting.</p>
+        </div>
+      </div>
+      <ul class="odd__chips">
+        <li>scene</li><li>altitude</li><li>camera pitch</li><li>camera profile</li><li>field of view</li><li>time of day</li>
+        <li>weather</li><li>crowd density</li><li class="is-real">person height, px</li><li>person height, share of frame</li><li>hidden, total</li><li>hidden by the scene</li>
+        <li>hidden by people</li><li>cut by the frame edge</li><li>sensor profile</li><li>sensor strength</li><li>sensor family</li><li>single frame or sequence</li>
+      </ul>
+      <p class="src">Measured 10 September 2026 by matching field names. It says a label exists, not that its values mean the same thing.</p>
+    </div>
+
+    <p class="formats reveal">Delivered as YOLO boxes, polygons and keypoints; per-person and per-frame tables in Parquet, CSV and JSON Lines; dataset metadata in MLCommons Croissant&nbsp;1.1.</p>
+  </section>
+
+  <!-- ============================================================ 03 -->
+  <section class="sect sect--evidence" id="evidence" aria-labelledby="s3-title">
+    <header class="sect__head">
+      <p class="sect__num">03</p>
+      <h2 class="sect__kicker" id="s3-title">What we have measured</h2>
+    </header>
+    <p class="lead reveal">Four results, each with the limit that comes with it.</p>
+
+    <article class="claim reveal" aria-labelledby="c1-title">
+      <div class="claim__text">
+        <p class="claim__tag"><span>A</span>Does it hold on real footage?</p>
+        <h3 id="c1-title" class="claim__title">Our frames rank a detector&rsquo;s weak spots in the order real drone footage does.</h3>
+        <p class="claim__body">We sliced detection results by apparent size and by how much of each person is hidden, on our frames and on a public real-world aerial benchmark, with &ldquo;hidden&rdquo; defined the same way on both sides. Across fifteen slices, all five places rank them close to the real order. Size carries most of that agreement; beyond size, the order of the three occlusion levels matches the real one in four of five size bands, on four of the five places.</p>
+        <dl class="claim__stats">
+          <div><dt>rank agreement, five places</dt><dd>ρ&nbsp;+0.86–0.96</dd></div>
+          <div><dt>median of the five</dt><dd>ρ&nbsp;+0.91</dd></div>
+          <div><dt>size alone would give</dt><dd>ρ&nbsp;+0.85</dd></div>
+        </dl>
+        <p class="claim__limit"><span>Limit</span>The order transfers; the levels only partly do. On four places, people in plain view are found at 0.7 to 2.5 times the real rate, while hidden people are found up to six times less often&nbsp;— hidden as measured on our side, as judged by an annotator on the real one. The quarry is the exception: its small people in plain view are found 24 to 62 times less often than on the other four, and its occlusion order breaks in three bands. We are tracing why. One detector, one real benchmark so far.</p>
+        <p class="claim__src">Measured 2 October 2026 · YOLO11m with public weights, untouched by us · each corpus whole, 87,180 to 417,397 people, against 531 real frames</p>
+      </div>
+
+      <figure class="bands" aria-labelledby="bands-cap">
+        <div class="bands__head"><span></span><span>real footage, hardest first</span><span>our five places</span></div>
+        <div class="bands__row" data-agree="0">
+          <span class="bands__size">10–17 px</span>
+          <span class="ord"><i class="o-h">heavy</i><i class="o-c">clear</i><i class="o-p">partial</i></span>
+          <span class="dots" role="img" aria-label="None of the five places orders this band as real footage does"><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="bands__row" data-agree="4">
+          <span class="bands__size">17–25 px</span>
+          <span class="ord"><i class="o-h">heavy</i><i class="o-p">partial</i><i class="o-c">clear</i></span>
+          <span class="dots" role="img" aria-label="Dubrovnik, Cairo, Bologna and the farm order this band as real footage does; the quarry does not"><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i class="y"></i></span>
+        </div>
+        <div class="bands__row" data-agree="4">
+          <span class="bands__size">25–36 px</span>
+          <span class="ord"><i class="o-h">heavy</i><i class="o-p">partial</i><i class="o-c">clear</i></span>
+          <span class="dots" role="img" aria-label="Dubrovnik, Cairo, Bologna and the farm order this band as real footage does; the quarry does not"><i class="y"></i><i class="y"></i><i class="y"></i><i></i><i class="y"></i></span>
+        </div>
+        <div class="bands__row" data-agree="5">
+          <span class="bands__size">36–47 px</span>
+          <span class="ord"><i class="o-h">heavy</i><i class="o-p">partial</i><i class="o-c">clear</i></span>
+          <span class="dots" role="img" aria-label="All five places order this band as real footage does"><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i></span>
+        </div>
+        <div class="bands__row" data-agree="5">
+          <span class="bands__size">47–80 px</span>
+          <span class="ord"><i class="o-h">heavy</i><i class="o-p">partial</i><i class="o-c">clear</i></span>
+          <span class="dots" role="img" aria-label="All five places order this band as real footage does"><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i></span>
+        </div>
+        <figcaption id="bands-cap">For each band of apparent height, the three occlusion levels as real footage orders them, hardest to detect first, and which of our places order them the same way (filled; left to right Dubrovnik, Cairo, Bologna, Quarry, Farm). In the smallest band real footage finds people in plain view less often than partly hidden ones, which no place of ours does; both sides find fewer than one person in eight there.</figcaption>
+      </figure>
+    </article>
+
+    <article class="claim claim--flip reveal" aria-labelledby="c2-title">
+      <div class="claim__text">
+        <p class="claim__tag"><span>B</span>Occlusion has a shape</p>
+        <h3 id="c2-title" class="claim__title">A person broken into pieces by what stands in front is harder to box than one seen whole, with the same pixels left.</h3>
+        <p class="claim__body">Held to the same apparent size, the same share hidden and the same number of pixels left, three detector families trained on everyday photographs box a person whose visible part is one compact region 1.8 to 2.5 times as often as one whose visible part is broken up, across our five places. Most of that gap is the box rather than the detection: the detector often finds the fragmented person but frames only one piece. With a looser box rule the gap falls to 1.4&times;, and for a detector trained on drone footage to about 1.1&times;.</p>
+        <dl class="claim__stats">
+          <div><dt>3 detector families × 5 places</dt><dd>1.8–2.5&times;</dd></div>
+          <div><dt>with a looser box rule</dt><dd>1.4&times;</dd></div>
+          <div><dt>real drone footage</dt><dd>1.22&times;</dd></div>
+        </dl>
+        <p class="claim__limit"><span>Limit</span>On real footage the effect is smaller. On VisDrone, with masks drawn by a segmentation model and a test written down before the data, a person in one piece is found 1.22 times as often as one in pieces (95% interval 1.03–1.45). An earlier probe on a second real dataset suggested 2.5&times;; it was exploratory, and VisDrone did not confirm its size. Machine-drawn masks catch only part of the fragmentation: 37% of it on our frames, where the truth is known. As a share of everything that decides detection, shape is a minor term; size and the pixels left dominate.</p>
+        <p class="claim__src">Measured 1–2 October 2026 · YOLO11m, RT-DETR-L and Faster R-CNN with public weights · people 25–36 px tall, 30–50% hidden by the scene · pooled across the five places with random effects</p>
+      </div>
+      <figure class="pair">
+        <div class="pair__item">
+          <img src="assets/img/shape-compact.webp" width="476" height="476" loading="lazy" alt="Pixel crop of a partly hidden person whose visible part is one piece: head and torso in green, legs hidden in orange.">
+          <p><strong>One piece</strong>151 px in view · 65% hidden</p>
+        </div>
+        <div class="pair__item">
+          <img src="assets/img/shape-fragmented.webp" width="476" height="476" loading="lazy" alt="Pixel crop of a partly hidden person whose visible part is broken into three pieces by the structure in front.">
+          <p><strong>Three pieces</strong>149 px in view · 70% hidden</p>
+        </div>
+        <figcaption>Two people from the same quarry frame. The finding comes from thousands of such people; these two only show what the difference looks like.</figcaption>
+      </figure>
+    </article>
+
+    <article class="claim reveal" aria-labelledby="c3-title">
+      <div class="claim__text">
+        <p class="claim__tag"><span>C</span>Is it just the map?</p>
+        <h3 id="c3-title" class="claim__title">Whether a person is found depends on the person, not on the place.</h3>
+        <p class="claim__body">Across 82 matched conditions that exist in all five places, which place a person stands in explains 7–15% of the variation in whether they are found. Their apparent size, how much of them is hidden, the shape of what is left and how many pixels remain explain 84–88% together.</p>
+        <p class="claim__limit"><span>Limit</span>Five places, all built by us, with one engine and one pipeline. Going from three places to five raised the place&rsquo;s share for one of the two detectors, to 15% when weighted by people. The plan is ten, and the question stays open until then.</p>
+        <p class="claim__src">Measured 1 October 2026 · YOLO11m and RT-DETR-L with public weights · cell-level recall over 82 configurations of size × occlusion × shape × pixels left · range is across both detectors, unweighted and weighted</p>
+      </div>
+      <figure class="split" aria-label="Share of variation in detection explained">
+        <div class="split__row">
+          <p class="split__label">Which of five places</p>
+          <div class="split__bar"><i style="--a:6.9;--b:15.4"></i></div>
+          <p class="split__val">7–15%</p>
+        </div>
+        <div class="split__row">
+          <p class="split__label">Size, share hidden, shape and pixels left</p>
+          <div class="split__bar"><i style="--a:83.7;--b:87.7"></i></div>
+          <p class="split__val">84–88%</p>
+        </div>
+        <div class="split__axis"><span>0</span><span>50%</span><span>100% of the variation</span></div>
+      </figure>
+    </article>
+
+    <article class="claim claim--flip reveal" aria-labelledby="c4-title">
+      <div class="claim__text">
+        <p class="claim__tag"><span>D</span>When our frames help training</p>
+        <h3 id="c4-title" class="claim__title">With a few hundred labelled drone frames, starting from ours finds 13–29% more people than training on them alone. With a thousand, it adds almost nothing.</h3>
+        <p class="claim__body">One detector, starting from public weights, was fine-tuned on 250 real aerial frames: once directly, and once after first training on 2,000 of our frames. We ran it three times, with different real frames and seeds, and scored every model on thousands of real frames none of them had seen, holding the false alarms equal. Starting from our frames found more people every time. With 500 or 1,000 real frames, the gain shrank to about 4%, inside the measurement&rsquo;s margin.</p>
+        <dl class="claim__stats">
+          <div><dt>250 real frames, 3 of 3 repeats</dt><dd>+13–29%</dd></div>
+          <div><dt>500 or 1,000 real frames</dt><dd>+4%</dd></div>
+          <div><dt>ours alone vs off the shelf</dt><dd>19% vs 25%</dd></div>
+        </dl>
+        <p class="claim__limit"><span>Limit</span>Our frames do not replace real ones: trained on ours alone, the detector finds fewer people on real footage than one taken off the shelf. Above about 500 real frames, training longer on your own data matters more than adding ours. One real dataset, one detector family, people only; the 500- and 1,000-frame results are single runs, and three repeats are still few.</p>
+        <p class="claim__src">Measured 1–2 October 2026 · YOLO11m from public weights · VisDrone-DET-train frames held out from every model: 6,221 per repeat, 5,471 for the single runs · one false alarm per frame</p>
+      </div>
+      <figure class="gain" aria-labelledby="gain-cap">
+        <div class="gain__plot">
+          <div class="gain__ref" style="--x:.188"><span>ours alone</span></div>
+          <div class="gain__ref gain__ref--shelf" style="--x:.252"><span>off the shelf</span></div>
+          <p class="gain__group">250 real frames</p>
+          <div class="gain__row" style="--a:.215;--b:.277"><span class="gain__lab">repeat 1</span><span class="gain__track"><i></i></span><b>+29%</b></div>
+          <div class="gain__row" style="--a:.284;--b:.322"><span class="gain__lab">repeat 2</span><span class="gain__track"><i></i></span><b>+13%</b></div>
+          <div class="gain__row" style="--a:.284;--b:.322"><span class="gain__lab">repeat 3</span><span class="gain__track"><i></i></span><b>+13%</b></div>
+          <p class="gain__group">more real frames, single runs</p>
+          <div class="gain__row is-single" style="--a:.313;--b:.327"><span class="gain__lab">500 frames</span><span class="gain__track"><i></i></span><b>+4%</b></div>
+          <div class="gain__row is-single" style="--a:.357;--b:.372"><span class="gain__lab">1,000 frames</span><span class="gain__track"><i></i></span><b>+4%</b></div>
+          <div class="gain__axis" aria-hidden="true"><span style="--x:.15">15%</span><span style="--x:.20">20%</span><span style="--x:.25">25%</span><span style="--x:.30">30%</span><span style="--x:.35">35%</span><span style="--x:.40">40%</span></div>
+        </div>
+        <p class="gain__key"><span><i class="gain__k gain__k--real"></i>real frames only</span><span><i class="gain__k gain__k--ours"></i>our frames first, then the same real ones</span></p>
+        <figcaption id="gain-cap">Share of people found on held-out real drone frames, at one false alarm per frame. Each repeat changes the 250 real frames and the seed; repeats 2 and 3 land within a tenth of a point of each other by coincidence, on different held-out frames. The single runs at 500 and 1,000 frames were scored on a slightly different held-out set.</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <!-- ============================================================ 04 -->
+  <section class="sect sect--places" id="places" aria-labelledby="s4-title">
+    <header class="sect__head">
+      <p class="sect__num">04</p>
+      <h2 class="sect__kicker" id="s4-title">Where we measure</h2>
+    </header>
+    <p class="lead reveal">Five places, each built to be measured, each captured some ten thousand times across weather, hour and camera angle.</p>
+
+    <ul class="places">
+      <li class="place reveal" data-place="0">
+        <button type="button" class="place__img" data-goto="0" aria-label="Show Dubrovnik in the opening view">
+          <img src="assets/img/place-dubrovnik-004170.webp" width="720" height="540" loading="lazy" alt="">
+          <svg class="place__boxes" viewBox="0 0 1280 960" aria-hidden="true"></svg>
+          <span class="place__go">See it from the air</span>
+        </button>
+        <h3>Dubrovnik</h3>
+        <p>An old town of flat limestone, 170 × 229&nbsp;m: narrow streets, cafés, awnings.</p>
+        <dl class="place__stats"><div><dt>frames</dt><dd>9,689</dd></div><div><dt>people</dt><dd>314,048</dd></div><div><dt>skies</dt><dd>10</dd></div><div><dt>hours</dt><dd>07:30–17:45</dd></div></dl>
+      </li>
+      <li class="place reveal" data-place="1">
+        <button type="button" class="place__img" data-goto="1" aria-label="Show Cairo in the opening view">
+          <img src="assets/img/place-cairo-006907.webp" width="720" height="540" loading="lazy" alt="">
+          <svg class="place__boxes" viewBox="0 0 1280 960" aria-hidden="true"></svg>
+          <span class="place__go">See it from the air</span>
+        </button>
+        <h3>Cairo</h3>
+        <p>A historic market district, about 380 × 240&nbsp;m built: stalls, umbrellas, a tower of about 90&nbsp;m.</p>
+        <dl class="place__stats"><div><dt>frames</dt><dd>10,001</dd></div><div><dt>people</dt><dd>307,022</dd></div><div><dt>skies</dt><dd>6</dd></div><div><dt>hours</dt><dd>08:00–15:45</dd></div></dl>
+      </li>
+      <li class="place reveal" data-place="2">
+        <button type="button" class="place__img" data-goto="2" aria-label="Show Bologna in the opening view">
+          <img src="assets/img/place-bologna-010404.webp" width="720" height="540" loading="lazy" alt="">
+          <svg class="place__boxes" viewBox="0 0 1280 960" aria-hidden="true"></svg>
+          <span class="place__go">See it from the air</span>
+        </button>
+        <h3>Bologna</h3>
+        <p>A 70 × 73&nbsp;m piazza and the streets around it, under 24&nbsp;m buildings.</p>
+        <dl class="place__stats"><div><dt>frames</dt><dd>10,002</dd></div><div><dt>people</dt><dd>400,173</dd></div><div><dt>skies</dt><dd>10</dd></div><div><dt>hours</dt><dd>07:30–17:45</dd></div></dl>
+      </li>
+      <li class="place reveal" data-place="3">
+        <button type="button" class="place__img" data-goto="3" aria-label="Show the quarry in the opening view">
+          <img src="assets/img/place-quarry-007165.webp" width="720" height="540" loading="lazy" alt="">
+          <svg class="place__boxes" viewBox="0 0 1280 960" aria-hidden="true"></svg>
+          <span class="place__go">See it from the air</span>
+        </button>
+        <h3>Quarry</h3>
+        <p>A working quarry, 172 × 172&nbsp;m with 31&nbsp;m of relief: benches, walkways, railings.</p>
+        <dl class="place__stats"><div><dt>frames</dt><dd>10,004</dd></div><div><dt>people</dt><dd>417,397</dd></div><div><dt>skies</dt><dd>10</dd></div><div><dt>hours</dt><dd>08:00–15:45</dd></div></dl>
+      </li>
+      <li class="place reveal" data-place="4">
+        <button type="button" class="place__img" data-goto="4" aria-label="Show the farm in the opening view">
+          <img src="assets/img/place-farm-011318.webp" width="720" height="540" loading="lazy" alt="">
+          <svg class="place__boxes" viewBox="0 0 1280 960" aria-hidden="true"></svg>
+          <span class="place__go">See it from the air</span>
+        </button>
+        <h3>Farm</h3>
+        <p>A farmyard with silos, hay bales and a windmill, and a thinner crowd than the towns.</p>
+        <dl class="place__stats"><div><dt>frames</dt><dd>10,002</dd></div><div><dt>people</dt><dd>87,180</dd></div><div><dt>skies</dt><dd>10</dd></div><div><dt>hours</dt><dd>07:30–16:30</dd></div></dl>
+      </li>
+    </ul>
+    <p class="src reveal">&ldquo;Skies&rdquo; counts the distinct weather presets used in each corpus. Every figure above is counted from the corpus itself.</p>
+
+    <div class="next reveal" aria-labelledby="coast-title">
+      <div class="next__head">
+        <p class="next__status"><span></span>In progress · a sixth place</p>
+        <h3 id="coast-title">A Mediterranean coast</h3>
+        <p>A town on a bay, a lido and a wild beach, a harbour with its boatyard, a campsite, allotments, a hamlet, and hills of pine and olive terraces&nbsp;— with people on the sand, in the water, on the boats and among the trees.</p>
+        <p class="src">Test captures from 2 October 2026, shown as they came out. Not yet a published corpus, so nothing from it is counted on this page.</p>
+      </div>
+      <ul class="next__strip">
+        <li class="is-wide"><img src="assets/img/coast-000010.webp" width="840" height="630" loading="lazy" alt="Rendered aerial view over allotments and olive trees on a dry hillside, a church tower and the town below, a marina and the sea beyond."><p>The hills and the town <span>46&nbsp;m · 08:45</span></p></li>
+        <li><img src="assets/img/coast-000043.webp" width="840" height="630" loading="lazy" alt="Rendered low view across a beach of orange umbrellas and sunbeds, with palm trees and colourful apartment blocks behind."><p>The lido <span>8&nbsp;m · 11:30</span></p></li>
+        <li><img src="assets/img/coast-000018.webp" width="840" height="630" loading="lazy" alt="Rendered view down on a rocky cove: turquoise water, bathers, a strip of beach umbrellas and dry scrub."><p>A rocky cove <span>43&nbsp;m · 09:30</span></p></li>
+        <li><img src="assets/img/coast-000017.webp" width="840" height="630" loading="lazy" alt="Rendered view over a piazza with a fountain, palms, market stalls and café umbrellas, people walking in long morning shadows."><p>The piazza <span>13&nbsp;m · 09:15</span></p></li>
+        <li><img src="assets/img/coast-000034.webp" width="840" height="630" loading="lazy" alt="Rendered view down on a marina: white yachts along a wooden pier, people on deck and on the quay."><p>The marina <span>18&nbsp;m · 10:45</span></p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ 05 -->
+  <section class="sect sect--offer" id="offer" aria-labelledby="s5-title">
+    <header class="sect__head">
+      <p class="sect__num">05</p>
+      <h2 class="sect__kicker" id="s5-title">What you can get from us</h2>
+    </header>
+    <p class="lead reveal">Split by what exists today, what we set up with you, and what is still being built.</p>
+
+    <div class="fmap reveal" data-fmap aria-labelledby="fmap-title">
+      <div class="fmap__head">
+        <p class="fmap__status"><span></span>Available now · an example</p>
+        <h3 id="fmap-title">A failure map, as you would get one</h3>
+        <p>An off-the-shelf detector on each of our places and on real drone footage: the share of people it finds, by how tall they appear and how much of them is hidden. Under each share, the people it rests on. Point at a cell, or move to it with the keyboard, for its 95% interval.</p>
+      </div>
+      <div class="fmap__tabs" role="group" aria-label="Where the detector was run" data-fmap-tabs></div>
+      <div class="fmap__wrap" data-fmap-grid><p class="fmap__fallback">The map needs JavaScript; its numbers are in the reports cited below.</p></div>
+      <p class="fmap__detail" data-fmap-detail aria-live="polite"></p>
+      <p class="fmap__note" data-fmap-note hidden></p>
+      <p class="src">Measured 2 October 2026 · YOLO11m with public weights, untouched by us, confidence 0.25, IoU 0.5 · each corpus whole, and 531 real frames from VisDrone-DET-val · on real footage &ldquo;hidden&rdquo; is the annotator&rsquo;s judgement, on ours it is measured · cells resting on fewer than 100 people are marked thin</p>
+    </div>
+
+    <div class="offer">
+      <div class="offer__col reveal" data-status="now">
+        <p class="offer__status"><span></span>Available now</p>
+        <article>
+          <h3>Failure maps for your detector</h3>
+          <p>We run your detector over our five environments and show where it misses people: by apparent size, by how much of a person is hidden, by what hides them and the shape of what is left, by light and by weather. Each slice comes with the number of people it rests on and a confidence interval.</p>
+          <p class="offer__fine">Today for YOLO, RT-DETR and Faster R-CNN detector families.</p>
+        </article>
+        <article>
+          <h3>Joint studies</h3>
+          <p>Measurements we design and run together on our corpora, written up with their limits, the way the results above are.</p>
+        </article>
+      </div>
+      <div class="offer__col reveal" data-status="pilot">
+        <p class="offer__status"><span></span>By arrangement</p>
+        <article>
+          <h3>A diagnostic pilot</h3>
+          <p>One detector and one operating domain that you declare. We return where it holds, where it fails, where the evidence is too thin to say either, and where it was never tested at all. The acceptance threshold is agreed with you, not assumed.</p>
+        </article>
+        <article>
+          <h3>Your environment, built to be measured</h3>
+          <p>Tell us where your detector has to work&nbsp;— a coastline, a mountain trail, an industrial yard&nbsp;— and we build that place, capture it with the same ground truth and pass it through the same automated review as the five above. A sixth, a Mediterranean coast, is being built now.</p>
+        </article>
+      </div>
+      <div class="offer__col reveal" data-status="dev">
+        <p class="offer__status"><span></span>In development</p>
+        <article>
+          <h3>A perception passport</h3>
+          <p>One versioned, machine-readable file per model: its operating map, why it fails, how well it is calibrated, and how far the synthetic evidence behind it can be trusted.</p>
+        </article>
+        <article>
+          <h3>Real–synthetic twins</h3>
+          <p>Controlled real scenes rebuilt in simulation, to show which of our conclusions survive the jump to photographs.</p>
+        </article>
+        <article>
+          <h3>Targeted data</h3>
+          <p>Frames generated for a detector&rsquo;s measured weak spots, with the gain proven against the same budget of random frames.</p>
+        </article>
+        <article>
+          <h3>What-if pairs</h3>
+          <p>The same scene with one thing changed&nbsp;— the hour, the weather, the height&nbsp;— and a check that nothing else moved.</p>
+        </article>
+        <article>
+          <h3>An open vocabulary</h3>
+          <p>The eighteen conditions above, published so anyone can describe their own operating domain in them.</p>
+        </article>
+      </div>
+    </div>
+    <p class="offer__note reveal">We do not certify models. We produce evidence that an assurance or certification process can use, and we say how far it can be trusted.</p>
+  </section>
+
+  <!-- ============================================================ 06 -->
+  <section class="sect sect--rules" id="principles" aria-labelledby="s6-title">
+    <header class="sect__head">
+      <p class="sect__num">06</p>
+      <h2 class="sect__kicker" id="s6-title">How we work</h2>
+    </header>
+    <ol class="rules">
+      <li class="reveal"><h3>Exact means read from the simulator.</h3><p>Nothing is drawn by hand, and every field on every frame says whether it is exact, measured, a proxy or provenance.</p></li>
+      <li class="reveal"><h3>A check can answer &ldquo;inconclusive&rdquo;.</h3><p>When nothing measured what a check exists to measure, it says so instead of passing.</p></li>
+      <li class="reveal"><h3>Corrections stay on the record.</h3><p>Our occlusion-shape result shrank from 4.2&ndash;8.5&times; to 2.0&times; once we held the pixels left constant, and again when most of the 2.0&times; turned out to be the box, not the detection; on real footage it measures 1.2&times;. Our agreement with real footage read +0.98 until &ldquo;hidden&rdquo; was measured the same way on both sides; it is +0.86 to +0.96. The smaller numbers are the ones on this page.</p></li>
+      <li class="reveal"><h3>Every number has a source.</h3><p>Each figure here traces to a dated measurement, and carries the limit that comes with it.</p></li>
+      <li class="reveal"><h3>The people are rendered.</h3><p>No real person&rsquo;s likeness, location or movement is recorded in our frames.</p></li>
+      <li class="reveal"><h3>Built for finding people.</h3><p>Small, partly hidden, seen at an angle, in poor light: the conditions that decide whether someone on the ground is found. This is not an operational endorsement, and nothing here has been tested in a live rescue.</p></li>
+    </ol>
+  </section>
+
+  <!-- ============================================================ 07 -->
+  <section class="sect sect--work" id="work" aria-labelledby="s7-title">
+    <header class="sect__head">
+      <p class="sect__num">07</p>
+      <p class="sect__kicker">Work with us</p>
+    </header>
+    <h2 id="s7-title" class="statement reveal"><span>Bring a detector,</span> <span class="dim">and the conditions it has to work in.</span></h2>
+
+    <div class="who reveal">
+      <article><h3>UAV makers and integrators</h3><p>Know where your person detector stops working before a customer finds out.</p></article>
+      <article><h3>Search and rescue, public safety</h3><p>Compare systems on the conditions that matter to you: small, partly hidden people, in poor light.</p></article>
+      <article><h3>Assurance and certification</h3><p>Operating domains described in eighteen recorded conditions, and evidence that says how far it can be trusted.</p></article>
+      <article><h3>Research groups</h3><p>Exact visibility ground truth for small people that no photograph can give.</p></article>
+    </div>
+
+    <div class="looking reveal">
+      <h3>We are looking for</h3>
+      <ul>
+        <li>Design partners with a real detector and a real operating domain.</li>
+        <li>An operator willing to describe their conditions in our vocabulary, so we see where it falls short.</li>
+        <li>A research group to reproduce one of our results independently.</li>
+      </ul>
+    </div>
+
+    <div class="contact reveal" aria-label="Contact">
+      <p class="contact__k">Contact</p>
+      <p class="contact__v">The channel for enquiries will appear here.</p>
+      <p class="contact__note">To be confirmed</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p class="foot__mark">EDAPA</p>
+  <p class="foot__line">Aerial person detection, measured. Every image on this page is rendered; every person in it is synthetic.</p>
+  <p class="foot__line">© 2026 EDAPA</p>
+</footer>
+</body>
+</html>
