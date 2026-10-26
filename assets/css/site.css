@@ -73,6 +73,10 @@ kbd { font: inherit; }
   color: var(--paper-dim); padding: 6px 0; transition: color .25s;
 }
 .mast__nav a:hover { color: var(--paper); }
+.mast__nav .beta {
+  display: inline-block; padding: 3px 6px 2px; margin-left: 8px; border: 1px solid var(--seen); color: var(--seen);
+  font: 500 10px/1 var(--f-mono); letter-spacing: .12em; vertical-align: 1px;
+}
 .mast::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(to bottom, rgba(10,11,10,.72), rgba(10,11,10,0));

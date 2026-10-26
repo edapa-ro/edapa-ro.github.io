@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>People Generation v2 (BETA) — EDAPA</title>
+<meta name="description" content="Every person in EDAPA's aerial frames is written in words before it is rendered: a new cast for every frame, from every region, each label knowing the sentence that made the person.">
+<link rel="canonical" href="https://edapa-ro.github.io/people/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EDAPA">
+<meta property="og:title" content="People Generation v2 (BETA) — EDAPA">
+<meta property="og:url" content="https://edapa-ro.github.io/people/">
+<meta property="og:description" content="Every person in EDAPA's aerial frames is written in words before it is rendered: a body, clothes, a pose and the things in their hands.">
+<meta property="og:image" content="https://edapa-ro.github.io/people/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A crowd of rendered people seen from a drone, a few of them bracketed in lime.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0b0a">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="people.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0b0a'/%3E%3Cpath d='M7 12V7h5M20 7h5v5M25 20v5h-5M12 25H7v-5' fill='none' stroke='%23c6f24e' stroke-width='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%23ff6b35'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+<script type="importmap">{"imports": {"three": "./vendor/three-0.170.0/three.module.js"}}</script>
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="mast" data-mast>
+  <a class="mast__mark" href="../" aria-label="EDAPA, home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 12V7h5M20 7h5v5M25 20v5h-5M12 25H7v-5"/><circle cx="16" cy="16" r="2.6"/></svg>
+    <span>EDAPA</span>
+  </a>
+  <nav class="mast__nav" aria-label="Site">
+    <a href="../#layers">Instrument</a>
+    <a href="../#evidence">Evidence</a>
+    <a href="../#offer">Offer</a>
+    <a href="./" aria-current="page">People<span class="beta">BETA</span></a>
+    <a href="../#work">Work with us</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================================================ 0–1: THE OPENING -->
+  <section class="p-hero" id="top" aria-labelledby="p-title" data-hero>
+    <img class="p-hero__still" src="assets/casts/test_a/crowd.webp" width="1920" height="1080"
+         alt="A crowd of rendered people seen from a drone, every one of them different: walkers, riders, workers, families, a woman with a dog.">
+    <canvas class="p-hero__gl" data-gl aria-hidden="true"></canvas>
+    <div class="p-hero__tags" data-tags aria-hidden="true"></div>
+    <p class="p-hero__hud" data-hud aria-hidden="true">Cast <b data-hud-n>01</b> · <span data-hud-name>—</span></p>
+
+    <div class="p-hero__copy">
+      <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>People Generation v2<span class="beta">BETA</span></p>
+      <h1 id="p-title" class="p-hero__title">
+        <span class="line"><span>Every person in our frames</span></span>
+        <span class="line"><span>is written before</span></span>
+        <span class="line"><span>it is rendered.</span></span>
+      </h1>
+      <p class="p-hero__lede">A sentence first — who they are, what they wear, what they are doing — then a body, clothes, a pose and the things in their hands. Ask again, and the crowd is new.</p>
+    </div>
+    <dl class="p-hero__figs">
+      <div class="p-fig"><dt>people written<br>for one map</dt><dd data-count="6290">6,290</dd></div>
+      <div class="p-fig"><dt>poses from<br>motion capture</dt><dd data-count="3110">3,110</dd></div>
+      <div class="p-fig"><dt>fields to write<br>one person</dt><dd data-count="40">40</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============================================================ 02: FROM A PHOTO TO A PERSON -->
+  <section class="p-real" id="real" aria-labelledby="real-title" data-real>
+    <div class="p-real__track" data-real-track>
+      <div class="p-real__view">
+        <header class="sect__head p-real__head">
+          <p class="sect__num">02</p>
+          <h2 id="real-title" class="sect__kicker">From a photo to a person</h2>
+          <p class="p-real__counter" data-counter>01 / 10</p>
+        </header>
+        <div class="p-real__top">
+          <p class="p-real__lead">A real person, written in words, <span class="dim">rebuilt by the generator.</span></p>
+          <p class="p-real__stat"><b>85%</b> of the real people we described can be built from what a drone sees.<sup>1</sup></p>
+        </div>
+        <div class="p-real__stage">
+          <figure class="p-real__photo">
+            <div class="p-real__frame"><div class="p-real__photo-in" data-photo-in><img data-photo alt=""></div>
+              <span class="p-real__bracket" data-bracket aria-hidden="true"></span></div>
+            <figcaption class="p-real__credit" data-credit></figcaption>
+          </figure>
+          <div class="p-real__words">
+            <p class="p-real__k">In words</p>
+            <p class="p-real__label" data-label></p>
+            <div class="p-real__chips" data-chips></div>
+            <p class="p-real__note">The same fields we write every generated person with. What a drone cannot see is left to the generator.</p>
+          </div>
+          <figure class="p-real__ours">
+            <canvas data-ours aria-hidden="true"></canvas>
+            <figcaption class="p-real__k">Ours · built from those words</figcaption>
+          </figure>
+        </div>
+        <div class="p-real__foot">
+          <div class="p-real__scale">
+            <img data-drone-real alt="The real person at the photo's own pixels.">
+            <img data-drone-ours alt="The rebuilt person at the same height in pixels.">
+            <p class="p-real__note"><span data-scale></span>: the photo's person and ours, as a drone sees them.</p>
+          </div>
+          <div class="p-real__dots" data-dots aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 03: WRITE A PERSON -->
+  <section class="p-compose" id="compose" aria-labelledby="compose-title" data-compose>
+    <header class="sect__head">
+      <p class="sect__num">03</p>
+      <h2 id="compose-title" class="sect__kicker">Write a person</h2>
+    </header>
+    <div class="p-compose__grid">
+      <div class="p-compose__text">
+        <p class="p-compose__sentence" data-sentence></p>
+        <p class="p-compose__note">Press a word to change it. Every choice comes from the vocabulary the frames are written in: 40 fields, 300 values, 137 rules. A combination the rules forbid is never offered.</p>
+      </div>
+      <figure class="p-compose__view">
+        <canvas data-compose-canvas aria-label="The person the sentence describes, in 3D. Drag to turn."></canvas>
+        <figcaption class="p-compose__cap"><span>⟲ drag to turn</span><span>loaded when chosen · <b data-size>—</b></span></figcaption>
+      </figure>
+    </div>
+    <div class="p-compose__menu" data-menu role="listbox" aria-label="Choose a word"></div>
+  </section>
+
+  <!-- ============================================================ 04: HOW A PERSON IS BUILT -->
+  <section class="p-steps" id="steps" aria-labelledby="steps-title" data-steps>
+    <div class="p-steps__track" data-steps-track>
+      <div class="p-steps__view">
+        <header class="sect__head">
+          <p class="sect__num">04</p>
+          <h2 id="steps-title" class="sect__kicker">How a person is built</h2>
+          <p class="p-steps__count" data-steps-count>step 1 of 8</p>
+        </header>
+        <div class="p-steps__grid">
+          <ol class="p-steps__list" data-steps-list>
+            <li><b>01</b><h3>Body</h3><p>One of 125 bodies — 115 Rocketbox avatars and 10 MakeHuman bodies — chosen by the words: sex, age, height, what they wear on top.</p></li>
+            <li><b>02</b><h3>Head</h3><p>Another avatar's head, cut at the neck and fitted to this body's skeleton.</p></li>
+            <li><b>03</b><h3>Build</h3><p>Slim, average, stocky or heavy: the body's shape keys, checked so that no hand ends up inside the belly.</p></li>
+            <li><b>04</b><h3>Colour</h3><p>Every garment recoloured into the colour its words ask for, from palettes measured on real clothes; the skin toned with it.</p></li>
+            <li><b>05</b><h3>Hijab</h3><p>Grown on this head, column by column around the face, then coloured. Checked before it goes on: no gap at the cheeks, nothing through the clothes.</p></li>
+            <li><b>06</b><h3>Backpack</h3><p>Fitted to the shoulders it sits on, its straps bound to the body so they move with it.</p></li>
+            <li><b>07</b><h3>Pose</h3><p>One of 3,110 poses from motion capture, or an authored one, chosen by what the words say she is doing.</p></li>
+            <li><b>08</b><h3>The things in the hands</h3><p>What the words say the hands hold, placed in the hand the pose closes round it.</p></li>
+          </ol>
+          <figure class="p-steps__fig">
+            <canvas data-steps-canvas aria-label="One person, step by step."></canvas>
+            <figcaption class="p-steps__bar" aria-hidden="true" data-steps-bar></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 05: THE WALL -->
+  <section class="p-wall" id="wall" aria-labelledby="wall-title" data-wall>
+    <header class="sect__head p-wall__head">
+      <p class="sect__num">05</p>
+      <h2 id="wall-title" class="sect__kicker">The wall</h2>
+      <p class="p-wall__count"><span data-wall-count>2,000</span> people · nobody twice</p>
+    </header>
+    <div class="p-wall__bar">
+      <div class="p-wall__filters" role="group" aria-label="Show the people a word finds">
+        <button type="button" data-filter="all" aria-pressed="true">everyone</button>
+        <button type="button" data-filter="children" aria-pressed="false">children</button>
+        <button type="button" data-filter="elderly" aria-pressed="false">elderly</button>
+        <button type="button" data-filter="work" aria-pressed="false">at work</button>
+        <button type="button" data-filter="uniform" aria-pressed="false">in uniform</button>
+        <button type="button" data-filter="hijab" aria-pressed="false">headscarf</button>
+        <button type="button" data-filter="wheels" aria-pressed="false">on wheels</button>
+        <button type="button" data-filter="groups" aria-pressed="false">in groups</button>
+        <button type="button" data-filter="beach" aria-pressed="false">at the beach</button>
+      </div>
+      <div class="p-wall__modes" role="group" aria-label="Arrange them">
+        <button type="button" data-mode="grid" aria-pressed="true">grid</button>
+        <button type="button" data-mode="pyramid" aria-pressed="false">age pyramid</button>
+        <button type="button" data-mode="sentence" aria-pressed="false">one sentence</button>
+      </div>
+    </div>
+    <div class="p-wall__stage">
+      <canvas class="p-wall__canvas" data-wall-canvas aria-label="Two thousand rendered people, each written from words."></canvas>
+      <div class="p-wall__card" data-wall-card aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 06: FROM 80 METRES TO ARM'S LENGTH -->
+  <section class="p-zoom" id="zoom" aria-labelledby="zoom-title" data-zoom>
+    <div class="p-zoom__track" data-zoom-track>
+      <div class="p-zoom__view">
+        <header class="sect__head p-zoom__head">
+          <p class="sect__num">06</p>
+          <h2 id="zoom-title" class="sect__kicker">From 80 metres to arm&rsquo;s length</h2>
+          <p class="p-zoom__hud" data-zoom-hud>80 m · 57.4° camera · 4000 × 3000</p>
+        </header>
+        <div class="p-zoom__stage" data-zoom-stage>
+          <div class="p-zoom__frame" data-zoom-frame><img data-zoom-img alt="A crowd seen from 80 metres by a drone's camera."></div>
+          <span class="p-zoom__bracket" data-zoom-bracket aria-hidden="true"></span>
+          <canvas class="p-zoom__close" data-zoom-close aria-hidden="true"></canvas>
+        </div>
+        <p class="p-zoom__text" data-zoom-text><span>What the detector gets: a few dozen pixels.</span><span>What we built: a whole person, every one of them.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 07: A NEW CAST EVERY FRAME -->
+  <section class="p-cast" id="cast" aria-labelledby="cast-title" data-cast>
+    <header class="sect__head">
+      <p class="sect__num">07</p>
+      <h2 id="cast-title" class="sect__kicker">A new cast every time</h2>
+    </header>
+    <p class="p-lead">Before, 115 avatars in 35 poses, <span class="dim">all of them adults of 1.72–1.87 m. Now, everyone written anew.</span></p>
+    <div class="p-curtain" data-curtain>
+      <img class="p-curtain__a" data-curtain-before alt="The crowd before: the same avatars in their own clothes, every one an adult.">
+      <img class="p-curtain__b" data-curtain-after alt="The same places with a written cast: children, the elderly, work clothes, dogs, bicycles.">
+      <div class="p-curtain__line" data-curtain-line role="slider" tabindex="0" aria-label="Move between before and now" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i>⇆</i></div>
+      <p class="p-curtain__k p-curtain__k--a">Before</p><p class="p-curtain__k p-curtain__k--b">v2 · nobody twice</p>
+    </div>
+    <div class="p-flip" data-flip>
+      <p class="p-flip__k">One place, every cast</p>
+      <div class="p-flip__row" data-flip-row></div>
+      <div class="p-flip__controls"><button type="button" data-flip-play aria-pressed="true">pause</button>
+        <input type="range" min="0" max="0" value="0" data-flip-range aria-label="Cast shown"><span data-flip-n></span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 08: THE LABELS KNOW THE WORDS -->
+  <section class="p-labels" id="labels" aria-labelledby="labels-title" data-labels>
+    <header class="sect__head">
+      <p class="sect__num">08</p>
+      <h2 id="labels-title" class="sect__kicker">The labels know the words</h2>
+    </header>
+    <p class="p-lead">Every box opens into the sentence <span class="dim">that wrote the person inside it.</span></p>
+    <div class="p-labels__stage">
+      <canvas data-labels-canvas aria-label="People seen from a drone, each filled with their own colour and boxed."></canvas>
+      <svg class="p-labels__boxes" data-labels-boxes aria-hidden="true"></svg>
+      <div class="p-wall__card p-labels__card" data-labels-card aria-hidden="true"></div>
+    </div>
+    <p class="p-note">Masks and boxes come from the render itself; each person's words come from the recipe that built them. Point at a person.</p>
+  </section>
+
+  <!-- ============================================================ 09: CHECKED BEFORE THEY REACH A MAP -->
+  <section class="p-checks" id="checks" aria-labelledby="checks-title">
+    <header class="sect__head">
+      <p class="sect__num">09</p>
+      <h2 id="checks-title" class="sect__kicker">Checked before they reach a map</h2>
+    </header>
+    <p class="p-lead">Every person is checked <span class="dim">before any map sees them.</span></p>
+    <div class="p-checks__row">
+      <figure class="p-check" data-check="float"><div class="p-check__stage"><img data-before alt=""><img data-after alt=""></div>
+        <figcaption>Floating 12 cm <b>→ on the ground</b></figcaption></figure>
+      <figure class="p-check" data-check="overlap"><div class="p-check__stage"><img data-before alt=""><img data-after alt=""></div>
+        <figcaption>Two people inside each other <b>→ apart</b></figcaption></figure>
+      <figure class="p-check" data-check="sunk"><div class="p-check__stage"><img data-before alt=""><img data-after alt=""></div>
+        <figcaption>Sunk 10 cm into the ground <b>→ standing on it</b></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============================================================ 10: THE MACHINE -->
+  <section class="p-machine" id="machine" aria-labelledby="machine-title">
+    <header class="sect__head">
+      <p class="sect__num">10</p>
+      <h2 id="machine-title" class="sect__kicker">The machine</h2>
+    </header>
+    <p class="p-lead">One sentence in, <span class="dim">one checked person out.</span></p>
+    <ol class="p-machine__nodes">
+      <li><b>01</b><h3>Vocabulary</h3><p>40 fields · 300 values<br>137 rules</p></li>
+      <li><b>02</b><h3>Weights</h3><p>place · climate<br>season · region</p></li>
+      <li><b>03</b><h3>Draw</h3><p>one sentence<br>per person</p></li>
+      <li><b>04</b><h3>Pieces</h3><p>125 bodies<br>3,110 poses</p></li>
+      <li><b>05</b><h3>Build</h3><p>body → clothes → head<br>→ pose → hands</p></li>
+      <li><b>06</b><h3>Checks</h3><p>floating · overlapping<br>inside objects</p></li>
+      <li><b>07</b><h3>Map</h3><p>placed where<br>the plan says</p></li>
+      <li><b>08</b><h3>Frame + labels</h3><p>masks · boxes<br>the sentence in each</p></li>
+    </ol>
+  </section>
+
+  <!-- ============================================================ 11: WHERE V2 IS GOING -->
+  <section class="p-goals" id="goals" aria-labelledby="goals-title">
+    <header class="sect__head">
+      <p class="sect__num">11</p>
+      <h2 id="goals-title" class="sect__kicker">Where v2 is going</h2>
+      <p class="p-goals__beta">this page is BETA</p>
+    </header>
+    <dl class="p-goals__list">
+      <div><dt>Goal for v2.0</dt><dd class="p-goals__big">99%</dd><p>of the people a drone sees, buildable from words.</p></div>
+      <div><dt>Goal for v2.0</dt><dd>Clothes from every region we fly</dd><p>long robes, saris, uniforms, work clothes, and what comes next.</p></div>
+      <div><dt>Goal for v2.0</dt><dd>A new cast in every frame of every map</dd><p>nobody twice, on any map we render.</p></div>
+    </dl>
+    <p class="p-goals__note"><span>BETA</span>Everything on this page runs today; the previews come from test renders. The goals above are what v2.0 ships with.</p>
+  </section>
+
+  <!-- ============================================================ 12: SOURCES AND CREDITS -->
+  <section class="p-credits" id="credits" aria-labelledby="credits-title">
+    <header class="sect__head">
+      <p class="sect__num">12</p>
+      <h2 id="credits-title" class="sect__kicker">Sources and credits</h2>
+    </header>
+    <div class="p-credits__cols">
+      <div><h3>Bodies and motion</h3>
+        <p><b>Microsoft Rocketbox</b> avatars · MIT</p><p><b>MakeHuman</b> and MPFB assets · CC0 and CC BY</p>
+        <p><b>CMU Graphics Lab</b> motion capture · free for all uses</p></div>
+      <div><h3>Things and textures</h3>
+        <p><b>Objaverse</b> and <b>Sketchfab</b> models · each with its author and licence</p>
+        <p><b>ambientCG</b> textures · CC0</p><p><b>three.js</b> · MIT · <b>Archivo</b>, <b>IBM Plex Mono</b> · SIL OFL</p></div>
+      <div><h3>Real photographs</h3><div data-photo-credits><p>Wikimedia Commons, each with its author and licence.</p></div></div>
+    </div>
+    <details class="p-credits__all" data-model-credits>
+      <summary>Every model a person on this page can wear, carry or ride, with its author <span data-model-count></span></summary>
+      <ul data-model-list></ul>
+    </details>
+    <p class="p-note">¹ 427 real people in drone photos — 327 from Wikimedia Commons, 100 from the VisDrone training set — each described in the same 40 fields from what a drone can see; 85% pass every rule and have every piece the generator needs.</p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p class="foot__mark">EDAPA</p>
+  <p class="foot__line">People Generation v2 is in BETA: the previews come from test renders.</p>
+  <p class="foot__line"><a href="../">Back to the main page</a></p>
+</footer>
+</body>
+</html>

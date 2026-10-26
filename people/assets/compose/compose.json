@@ -1,0 +1,1311 @@
+{
+ "sentence": "A {who} in a {top}, {head}, {doing}.",
+ "fields": [
+  {
+   "key": "who",
+   "labels": {
+    "female:child": "girl",
+    "male:adult": "man",
+    "female:adult": "woman",
+    "male:elderly": "older man",
+    "female:elderly": "older woman",
+    "male:teen": "teenage boy",
+    "female:teen": "teenage girl",
+    "male:child": "boy",
+    "male:toddler": "toddler",
+    "female:toddler": "toddler"
+   }
+  },
+  {
+   "key": "top",
+   "labels": {
+    "light_blue_tshirt": "light blue t-shirt",
+    "white_jacket": "white jacket",
+    "black_shirt": "black shirt",
+    "olive_blazer": "olive blazer",
+    "dark_grey_tshirt": "dark grey t-shirt",
+    "pink_tshirt": "pink t-shirt",
+    "red_tshirt": "red t-shirt",
+    "navy_tshirt": "navy t-shirt",
+    "light_grey_tshirt": "light grey t-shirt",
+    "light_blue_dress": "light blue dress",
+    "pink_dress": "pink dress",
+    "black_long_robe": "black long robe",
+    "red_blouse_polo": "red polo",
+    "white_long_robe": "white long robe",
+    "purple_tank_top": "purple tank top",
+    "pink_tank_top": "pink tank top",
+    "beige_shirt": "beige shirt",
+    "light_blue_blouse_polo": "light blue polo",
+    "olive_jacket": "olive jacket",
+    "brown_long_robe": "brown long robe",
+    "black_blazer": "black blazer",
+    "dark_grey_tank_top": "dark grey tank top",
+    "light_blue_tank_top": "light blue tank top",
+    "red_shirt": "red shirt",
+    "black_tshirt": "black t-shirt",
+    "white_tank_top": "white tank top",
+    "olive_shirt": "olive shirt",
+    "black_tank_top": "black tank top",
+    "red_dress": "red dress",
+    "light_grey_tank_top": "light grey tank top",
+    "olive_tank_top": "olive tank top",
+    "yellow_jacket": "yellow jacket",
+    "navy_tank_top": "navy tank top",
+    "light_blue_shirt": "light blue shirt",
+    "dark_grey_shirt": "dark grey shirt",
+    "white_shirt": "white shirt",
+    "navy_blouse_polo": "navy polo",
+    "beige_tank_top": "beige tank top",
+    "white_tshirt": "white t-shirt",
+    "black_blouse_polo": "black polo",
+    "light_grey_blouse_polo": "light grey polo",
+    "olive_blouse_polo": "olive polo",
+    "black_dress": "black dress",
+    "white_dress": "white dress",
+    "beige_tshirt": "beige t-shirt",
+    "olive_tshirt": "olive t-shirt",
+    "navy_shirt": "navy shirt",
+    "light_grey_shirt": "light grey shirt",
+    "dark_grey_blazer": "dark grey blazer",
+    "brown_tshirt": "brown t-shirt",
+    "brown_blazer": "brown blazer",
+    "red_tank_top": "red tank top",
+    "white_blouse_polo": "white polo",
+    "brown_tank_top": "brown tank top"
+   }
+  },
+  {
+   "key": "head",
+   "labels": {
+    "headscarf": "in a headscarf",
+    "cap": "in a cap",
+    "none": "bare-headed",
+    "turban": "in a turban",
+    "load_on_head": "a load on the head",
+    "keffiyeh": "in a keffiyeh",
+    "conical_hat": "in a conical hat",
+    "sun_hat": "in a sun hat"
+   }
+  },
+  {
+   "key": "doing",
+   "labels": {
+    "walk": "walking",
+    "carry": "carrying something",
+    "talk": "talking",
+    "cross": "crossing",
+    "work": "at work",
+    "shop": "shopping",
+    "stand": "standing",
+    "look_bend": "bending down",
+    "phone": "on the phone",
+    "run": "running",
+    "photo": "taking a photo",
+    "wait": "waiting"
+   }
+  }
+ ],
+ "people": [
+  {
+   "file": "p000.glb",
+   "words": {
+    "who": "female:child",
+    "top": "light_blue_tshirt",
+    "head": "headscarf",
+    "doing": "walk"
+   },
+   "bytes": 225096
+  },
+  {
+   "file": "p001.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "white_jacket",
+    "head": "cap",
+    "doing": "carry"
+   },
+   "bytes": 274188
+  },
+  {
+   "file": "p002.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "black_shirt",
+    "head": "none",
+    "doing": "talk"
+   },
+   "bytes": 178764
+  },
+  {
+   "file": "p003.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "olive_blazer",
+    "head": "none",
+    "doing": "cross"
+   },
+   "bytes": 304968
+  },
+  {
+   "file": "p004.glb",
+   "words": {
+    "who": "male:elderly",
+    "top": "dark_grey_tshirt",
+    "head": "none",
+    "doing": "work"
+   },
+   "bytes": 255068
+  },
+  {
+   "file": "p005.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "pink_tshirt",
+    "head": "turban",
+    "doing": "shop"
+   },
+   "bytes": 581044
+  },
+  {
+   "file": "p006.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "red_tshirt",
+    "head": "load_on_head",
+    "doing": "carry"
+   },
+   "bytes": 288384
+  },
+  {
+   "file": "p007.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "navy_tshirt",
+    "head": "keffiyeh",
+    "doing": "stand"
+   },
+   "bytes": 195408
+  },
+  {
+   "file": "p008.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_grey_tshirt",
+    "head": "conical_hat",
+    "doing": "walk"
+   },
+   "bytes": 207204
+  },
+  {
+   "file": "p009.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "light_blue_dress",
+    "head": "turban",
+    "doing": "talk"
+   },
+   "bytes": 258332
+  },
+  {
+   "file": "p010.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "pink_dress",
+    "head": "none",
+    "doing": "cross"
+   },
+   "bytes": 283068
+  },
+  {
+   "file": "p011.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_long_robe",
+    "head": "headscarf",
+    "doing": "walk"
+   },
+   "bytes": 203676
+  },
+  {
+   "file": "p012.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "dark_grey_tshirt",
+    "head": "keffiyeh",
+    "doing": "talk"
+   },
+   "bytes": 186792
+  },
+  {
+   "file": "p013.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "red_blouse_polo",
+    "head": "none",
+    "doing": "carry"
+   },
+   "bytes": 307796
+  },
+  {
+   "file": "p014.glb",
+   "words": {
+    "who": "male:elderly",
+    "top": "white_long_robe",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 198432
+  },
+  {
+   "file": "p015.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "purple_tank_top",
+    "head": "conical_hat",
+    "doing": "walk"
+   },
+   "bytes": 279484
+  },
+  {
+   "file": "p016.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "pink_tank_top",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 329524
+  },
+  {
+   "file": "p017.glb",
+   "words": {
+    "who": "male:teen",
+    "top": "navy_tshirt",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 271656
+  },
+  {
+   "file": "p018.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_blue_tshirt",
+    "head": "load_on_head",
+    "doing": "walk"
+   },
+   "bytes": 362100
+  },
+  {
+   "file": "p019.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "white_long_robe",
+    "head": "headscarf",
+    "doing": "walk"
+   },
+   "bytes": 226048
+  },
+  {
+   "file": "p020.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "beige_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 168020
+  },
+  {
+   "file": "p021.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_blue_blouse_polo",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 369644
+  },
+  {
+   "file": "p022.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "navy_tshirt",
+    "head": "none",
+    "doing": "work"
+   },
+   "bytes": 185780
+  },
+  {
+   "file": "p023.glb",
+   "words": {
+    "who": "female:teen",
+    "top": "light_grey_tshirt",
+    "head": "headscarf",
+    "doing": "talk"
+   },
+   "bytes": 282744
+  },
+  {
+   "file": "p024.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "olive_jacket",
+    "head": "none",
+    "doing": "look_bend"
+   },
+   "bytes": 250096
+  },
+  {
+   "file": "p025.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "white_long_robe",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 213756
+  },
+  {
+   "file": "p026.glb",
+   "words": {
+    "who": "male:child",
+    "top": "beige_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 305140
+  },
+  {
+   "file": "p027.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "brown_long_robe",
+    "head": "headscarf",
+    "doing": "walk"
+   },
+   "bytes": 237056
+  },
+  {
+   "file": "p028.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "white_long_robe",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 225396
+  },
+  {
+   "file": "p029.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_blazer",
+    "head": "sun_hat",
+    "doing": "phone"
+   },
+   "bytes": 227948
+  },
+  {
+   "file": "p030.glb",
+   "words": {
+    "who": "male:child",
+    "top": "dark_grey_tank_top",
+    "head": "cap",
+    "doing": "walk"
+   },
+   "bytes": 349572
+  },
+  {
+   "file": "p031.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_blue_tank_top",
+    "head": "none",
+    "doing": "run"
+   },
+   "bytes": 349992
+  },
+  {
+   "file": "p032.glb",
+   "words": {
+    "who": "male:toddler",
+    "top": "red_shirt",
+    "head": "sun_hat",
+    "doing": "stand"
+   },
+   "bytes": 334248
+  },
+  {
+   "file": "p033.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "black_tshirt",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 279400
+  },
+  {
+   "file": "p034.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "white_tank_top",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 245296
+  },
+  {
+   "file": "p035.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "olive_shirt",
+    "head": "cap",
+    "doing": "phone"
+   },
+   "bytes": 230648
+  },
+  {
+   "file": "p036.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "dark_grey_tank_top",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 212416
+  },
+  {
+   "file": "p037.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_blue_tshirt",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 266160
+  },
+  {
+   "file": "p038.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_tank_top",
+    "head": "none",
+    "doing": "look_bend"
+   },
+   "bytes": 306244
+  },
+  {
+   "file": "p039.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "red_dress",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 205480
+  },
+  {
+   "file": "p040.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_blue_blouse_polo",
+    "head": "cap",
+    "doing": "photo"
+   },
+   "bytes": 458192
+  },
+  {
+   "file": "p041.glb",
+   "words": {
+    "who": "male:child",
+    "top": "light_grey_tank_top",
+    "head": "sun_hat",
+    "doing": "run"
+   },
+   "bytes": 334948
+  },
+  {
+   "file": "p042.glb",
+   "words": {
+    "who": "female:child",
+    "top": "light_blue_tank_top",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 256528
+  },
+  {
+   "file": "p043.glb",
+   "words": {
+    "who": "male:teen",
+    "top": "olive_tank_top",
+    "head": "sun_hat",
+    "doing": "look_bend"
+   },
+   "bytes": 308548
+  },
+  {
+   "file": "p044.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_blue_tshirt",
+    "head": "cap",
+    "doing": "phone"
+   },
+   "bytes": 344976
+  },
+  {
+   "file": "p045.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "yellow_jacket",
+    "head": "cap",
+    "doing": "walk"
+   },
+   "bytes": 251696
+  },
+  {
+   "file": "p046.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 206132
+  },
+  {
+   "file": "p047.glb",
+   "words": {
+    "who": "female:child",
+    "top": "navy_tank_top",
+    "head": "none",
+    "doing": "run"
+   },
+   "bytes": 272868
+  },
+  {
+   "file": "p048.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_tshirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 552228
+  },
+  {
+   "file": "p049.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_blue_shirt",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 214568
+  },
+  {
+   "file": "p050.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "dark_grey_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 236512
+  },
+  {
+   "file": "p051.glb",
+   "words": {
+    "who": "female:child",
+    "top": "white_shirt",
+    "head": "sun_hat",
+    "doing": "look_bend"
+   },
+   "bytes": 315676
+  },
+  {
+   "file": "p052.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "navy_blouse_polo",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 196816
+  },
+  {
+   "file": "p053.glb",
+   "words": {
+    "who": "male:teen",
+    "top": "black_tank_top",
+    "head": "cap",
+    "doing": "run"
+   },
+   "bytes": 261176
+  },
+  {
+   "file": "p054.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "purple_tank_top",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 163392
+  },
+  {
+   "file": "p055.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_blue_blouse_polo",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 286900
+  },
+  {
+   "file": "p056.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "black_tshirt",
+    "head": "cap",
+    "doing": "walk"
+   },
+   "bytes": 193148
+  },
+  {
+   "file": "p057.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "beige_tank_top",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 332696
+  },
+  {
+   "file": "p058.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "dark_grey_tshirt",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 284468
+  },
+  {
+   "file": "p059.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_blue_tank_top",
+    "head": "none",
+    "doing": "carry"
+   },
+   "bytes": 381116
+  },
+  {
+   "file": "p060.glb",
+   "words": {
+    "who": "female:child",
+    "top": "white_tshirt",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 427904
+  },
+  {
+   "file": "p061.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "pink_tshirt",
+    "head": "none",
+    "doing": "look_bend"
+   },
+   "bytes": 196312
+  },
+  {
+   "file": "p062.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_grey_tshirt",
+    "head": "none",
+    "doing": "run"
+   },
+   "bytes": 292844
+  },
+  {
+   "file": "p063.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_blue_tank_top",
+    "head": "sun_hat",
+    "doing": "talk"
+   },
+   "bytes": 203008
+  },
+  {
+   "file": "p064.glb",
+   "words": {
+    "who": "male:child",
+    "top": "white_tshirt",
+    "head": "cap",
+    "doing": "run"
+   },
+   "bytes": 307392
+  },
+  {
+   "file": "p065.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "light_blue_tshirt",
+    "head": "cap",
+    "doing": "phone"
+   },
+   "bytes": 233692
+  },
+  {
+   "file": "p066.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_tshirt",
+    "head": "cap",
+    "doing": "walk"
+   },
+   "bytes": 440812
+  },
+  {
+   "file": "p067.glb",
+   "words": {
+    "who": "female:child",
+    "top": "dark_grey_tshirt",
+    "head": "none",
+    "doing": "carry"
+   },
+   "bytes": 346972
+  },
+  {
+   "file": "p068.glb",
+   "words": {
+    "who": "male:child",
+    "top": "black_blouse_polo",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 312304
+  },
+  {
+   "file": "p069.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_grey_blouse_polo",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 210844
+  },
+  {
+   "file": "p070.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "olive_blouse_polo",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 251148
+  },
+  {
+   "file": "p071.glb",
+   "words": {
+    "who": "female:child",
+    "top": "white_shirt",
+    "head": "cap",
+    "doing": "stand"
+   },
+   "bytes": 286316
+  },
+  {
+   "file": "p072.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "white_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 241768
+  },
+  {
+   "file": "p073.glb",
+   "words": {
+    "who": "female:child",
+    "top": "black_dress",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 276016
+  },
+  {
+   "file": "p074.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "dark_grey_shirt",
+    "head": "cap",
+    "doing": "phone"
+   },
+   "bytes": 259212
+  },
+  {
+   "file": "p075.glb",
+   "words": {
+    "who": "male:child",
+    "top": "dark_grey_tank_top",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 313396
+  },
+  {
+   "file": "p076.glb",
+   "words": {
+    "who": "female:teen",
+    "top": "white_tshirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 339352
+  },
+  {
+   "file": "p077.glb",
+   "words": {
+    "who": "female:child",
+    "top": "light_grey_tshirt",
+    "head": "cap",
+    "doing": "walk"
+   },
+   "bytes": 277284
+  },
+  {
+   "file": "p078.glb",
+   "words": {
+    "who": "female:toddler",
+    "top": "white_dress",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 269748
+  },
+  {
+   "file": "p079.glb",
+   "words": {
+    "who": "male:child",
+    "top": "beige_tshirt",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 260316
+  },
+  {
+   "file": "p080.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "olive_tshirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 286568
+  },
+  {
+   "file": "p081.glb",
+   "words": {
+    "who": "female:child",
+    "top": "navy_tank_top",
+    "head": "cap",
+    "doing": "look_bend"
+   },
+   "bytes": 263556
+  },
+  {
+   "file": "p082.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_dress",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 255720
+  },
+  {
+   "file": "p083.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_blue_tank_top",
+    "head": "sun_hat",
+    "doing": "carry"
+   },
+   "bytes": 301756
+  },
+  {
+   "file": "p084.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "red_shirt",
+    "head": "sun_hat",
+    "doing": "stand"
+   },
+   "bytes": 450308
+  },
+  {
+   "file": "p085.glb",
+   "words": {
+    "who": "female:child",
+    "top": "navy_tank_top",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 289392
+  },
+  {
+   "file": "p086.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "light_grey_tshirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 293196
+  },
+  {
+   "file": "p087.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "navy_shirt",
+    "head": "sun_hat",
+    "doing": "phone"
+   },
+   "bytes": 244176
+  },
+  {
+   "file": "p088.glb",
+   "words": {
+    "who": "male:child",
+    "top": "purple_tank_top",
+    "head": "cap",
+    "doing": "run"
+   },
+   "bytes": 320644
+  },
+  {
+   "file": "p089.glb",
+   "words": {
+    "who": "male:elderly",
+    "top": "black_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 185176
+  },
+  {
+   "file": "p090.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "beige_tshirt",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 222608
+  },
+  {
+   "file": "p091.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "light_blue_tshirt",
+    "head": "sun_hat",
+    "doing": "talk"
+   },
+   "bytes": 276728
+  },
+  {
+   "file": "p092.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "olive_tank_top",
+    "head": "none",
+    "doing": "talk"
+   },
+   "bytes": 263032
+  },
+  {
+   "file": "p093.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "white_tank_top",
+    "head": "sun_hat",
+    "doing": "look_bend"
+   },
+   "bytes": 316404
+  },
+  {
+   "file": "p094.glb",
+   "words": {
+    "who": "male:elderly",
+    "top": "dark_grey_tshirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 262216
+  },
+  {
+   "file": "p095.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "navy_tshirt",
+    "head": "sun_hat",
+    "doing": "look_bend"
+   },
+   "bytes": 266104
+  },
+  {
+   "file": "p096.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "pink_tshirt",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 268880
+  },
+  {
+   "file": "p097.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "olive_tank_top",
+    "head": "sun_hat",
+    "doing": "run"
+   },
+   "bytes": 245132
+  },
+  {
+   "file": "p098.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "beige_tshirt",
+    "head": "cap",
+    "doing": "stand"
+   },
+   "bytes": 336200
+  },
+  {
+   "file": "p099.glb",
+   "words": {
+    "who": "female:child",
+    "top": "light_grey_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 475448
+  },
+  {
+   "file": "p100.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_dress",
+    "head": "sun_hat",
+    "doing": "carry"
+   },
+   "bytes": 271264
+  },
+  {
+   "file": "p101.glb",
+   "words": {
+    "who": "female:child",
+    "top": "white_dress",
+    "head": "sun_hat",
+    "doing": "phone"
+   },
+   "bytes": 285928
+  },
+  {
+   "file": "p102.glb",
+   "words": {
+    "who": "female:child",
+    "top": "black_tshirt",
+    "head": "sun_hat",
+    "doing": "talk"
+   },
+   "bytes": 281656
+  },
+  {
+   "file": "p103.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "navy_tshirt",
+    "head": "none",
+    "doing": "carry"
+   },
+   "bytes": 250084
+  },
+  {
+   "file": "p104.glb",
+   "words": {
+    "who": "female:child",
+    "top": "light_grey_shirt",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 304188
+  },
+  {
+   "file": "p105.glb",
+   "words": {
+    "who": "female:teen",
+    "top": "white_tank_top",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 277736
+  },
+  {
+   "file": "p106.glb",
+   "words": {
+    "who": "male:elderly",
+    "top": "dark_grey_blazer",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 205296
+  },
+  {
+   "file": "p107.glb",
+   "words": {
+    "who": "male:teen",
+    "top": "navy_tank_top",
+    "head": "cap",
+    "doing": "wait"
+   },
+   "bytes": 273344
+  },
+  {
+   "file": "p108.glb",
+   "words": {
+    "who": "male:teen",
+    "top": "black_shirt",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 305728
+  },
+  {
+   "file": "p109.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "brown_tshirt",
+    "head": "sun_hat",
+    "doing": "run"
+   },
+   "bytes": 243664
+  },
+  {
+   "file": "p110.glb",
+   "words": {
+    "who": "male:elderly",
+    "top": "brown_blazer",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 38392
+  },
+  {
+   "file": "p111.glb",
+   "words": {
+    "who": "female:elderly",
+    "top": "white_shirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 548620
+  },
+  {
+   "file": "p112.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "red_tank_top",
+    "head": "sun_hat",
+    "doing": "walk"
+   },
+   "bytes": 311768
+  },
+  {
+   "file": "p113.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "white_blouse_polo",
+    "head": "cap",
+    "doing": "carry"
+   },
+   "bytes": 317176
+  },
+  {
+   "file": "p114.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "dark_grey_tank_top",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 196516
+  },
+  {
+   "file": "p115.glb",
+   "words": {
+    "who": "male:adult",
+    "top": "white_tshirt",
+    "head": "sun_hat",
+    "doing": "carry"
+   },
+   "bytes": 282704
+  },
+  {
+   "file": "p116.glb",
+   "words": {
+    "who": "female:toddler",
+    "top": "white_dress",
+    "head": "none",
+    "doing": "stand"
+   },
+   "bytes": 310684
+  },
+  {
+   "file": "p117.glb",
+   "words": {
+    "who": "male:child",
+    "top": "brown_tank_top",
+    "head": "cap",
+    "doing": "talk"
+   },
+   "bytes": 334824
+  },
+  {
+   "file": "p118.glb",
+   "words": {
+    "who": "female:adult",
+    "top": "black_shirt",
+    "head": "none",
+    "doing": "phone"
+   },
+   "bytes": 219860
+  },
+  {
+   "file": "p119.glb",
+   "words": {
+    "who": "male:toddler",
+    "top": "red_tshirt",
+    "head": "none",
+    "doing": "walk"
+   },
+   "bytes": 264296
+  }
+ ]
+}
