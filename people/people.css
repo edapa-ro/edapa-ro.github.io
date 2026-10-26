@@ -86,7 +86,7 @@
   .js .p-hero__title .line > span { transform: none; }
 }
 
-/* ---------------------------------------------------------------- 02: from a photo to a person */
+/* ---------------------------------------------------------------- 04: from a photo to a person */
 .p-real__track { position: relative; }
 .p-real__view {
   position: sticky; top: 0; height: 100svh; min-height: 640px; overflow: hidden;
@@ -145,7 +145,7 @@
   .p-real__stat { display: none; }
 }
 
-/* ---------------------------------------------------------------- 05: the wall */
+/* ---------------------------------------------------------------- 03: the wall */
 .p-wall { position: relative; padding: clamp(80px, 12vh, 140px) var(--gutter) 40px; max-width: 1600px; margin: 0 auto; }
 .p-wall__count { margin-left: auto !important; color: var(--paper-mute); }
 .p-wall__bar { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; margin-bottom: 18px; }
@@ -168,50 +168,13 @@
 .p-wall__card .k { color: var(--paper-mute); }
 .p-wall__card hr { border: 0; border-top: 1px solid var(--line); margin: 8px 0; }
 
-/* ---------------------------------------------------------------- 03: write a person */
-.p-compose { position: relative; max-width: var(--max); margin: 0 auto; padding: clamp(96px, 14vh, 160px) var(--gutter) 60px; }
-.p-compose__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
-.p-compose__sentence {
-  margin: 0; font: 500 clamp(2rem, 3.6vw, 3.4rem)/1.32 var(--f-sans); font-stretch: 104%; letter-spacing: -.018em;
-}
-.p-slot {
-  display: inline; padding: 0 .08em; border: 0; border-bottom: 2px dashed var(--hidden-people); background: none;
-  font: inherit; color: inherit; cursor: pointer; transition: color .4s, border-color .4s;
-}
-.p-slot:hover { border-bottom-style: solid; }
-.p-slot.is-new { color: var(--seen); border-bottom: 2px solid var(--seen); }
-.p-compose__note { margin: 26px 0 0; max-width: 38em; font: 400 12px/1.55 var(--f-mono); color: var(--paper-mute); }
-.p-compose__view {
-  position: relative; margin: 0; height: min(78vh, 760px);
-  background: radial-gradient(55% 40% at 50% 84%, #262926 0%, #121412 60%, var(--ink-0) 100%);
-  border: 1px solid var(--line);
-}
-.p-compose__view canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
-.p-compose__cap {
-  position: absolute; left: 16px; right: 16px; bottom: 12px; display: flex; justify-content: space-between;
-  font: 400 11px/1 var(--f-mono); letter-spacing: .04em; color: var(--paper-mute); pointer-events: none;
-}
-.p-compose__cap b { color: var(--paper-dim); font-weight: 400; }
-.p-compose__menu {
-  position: absolute; left: 0; top: 0; z-index: 5; min-width: 240px; padding: 6px 0;
-  background: #141614; border: 1px solid var(--line-strong); opacity: 0; pointer-events: none; transition: opacity .2s;
-}
-.p-compose__menu.is-on { opacity: 1; pointer-events: auto; }
-.p-compose__menu button {
-  display: block; width: 100%; padding: 11px 16px; border: 0; background: none; text-align: left; cursor: pointer;
-  font: 400 15px/1 var(--f-mono); color: var(--paper-dim);
-}
-.p-compose__menu button:hover { color: var(--paper); background: rgba(236, 234, 226, .05); }
-.p-compose__menu button[aria-pressed="true"] { color: var(--ink-0); background: var(--seen); }
-@media (max-width: 900px) { .p-compose__grid { grid-template-columns: 1fr; } .p-compose__view { height: 70vh; } }
-
 /* ---------------------------------------------------------------- shared text of the later scenes */
-.p-labels, .p-machine, .p-goals, .p-credits { max-width: var(--max); margin: 0 auto; padding: clamp(96px, 14vh, 160px) var(--gutter) 40px; }
+.p-labels, .p-goals, .p-credits { max-width: var(--max); margin: 0 auto; padding: clamp(96px, 14vh, 160px) var(--gutter) 40px; }
 .p-lead { margin: 0 0 clamp(28px, 5vh, 52px); max-width: 24em; font: 500 clamp(1.5rem, 2.6vw, 2.3rem)/1.15 var(--f-sans); font-stretch: 104%; letter-spacing: -.015em; }
 .p-lead .dim { color: var(--paper-mute); }
 .p-note { margin: 18px 0 0; max-width: 60em; font: 400 12px/1.55 var(--f-mono); color: var(--paper-mute); }
 
-/* ---------------------------------------------------------------- 08: labels */
+/* ---------------------------------------------------------------- 06: labels */
 .p-labels__stage { position: relative; border: 1px solid var(--line); }
 .p-labels__stage canvas { display: block; width: 100%; height: auto; }
 .p-labels__boxes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -221,18 +184,7 @@
 .p-labels__boxes g.is-on path { stroke-width: 3; opacity: 1; }
 .p-labels__card { border-left-color: var(--seen); }
 
-/* ---------------------------------------------------------------- 10: the machine */
-.p-machine__nodes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; counter-reset: n; }
-.p-machine__nodes li { position: relative; padding: 18px 18px 22px; border: 1px solid var(--line-strong); background: var(--ink-1); }
-.p-machine__nodes li:nth-child(-n+4) { border-color: rgba(198, 242, 78, .55); }
-.p-machine__nodes b { font: 500 11px/1 var(--f-mono); letter-spacing: .12em; color: var(--seen); }
-.p-machine__nodes h3 { margin: 14px 0 10px; font: 500 clamp(1.3rem, 1.8vw, 1.7rem)/1.1 var(--f-sans); }
-.p-machine__nodes p { margin: 0; font: 400 12px/1.6 var(--f-mono); color: var(--paper-dim); }
-.p-machine__nodes li::after { content: "→"; position: absolute; right: -16px; top: 50%; transform: translateY(-50%); font: 400 14px var(--f-mono); color: var(--paper-mute); }
-.p-machine__nodes li:nth-child(4n)::after, .p-machine__nodes li:last-child::after { content: none; }
-@media (max-width: 900px) { .p-machine__nodes { grid-template-columns: 1fr 1fr; } }
-
-/* ---------------------------------------------------------------- 11: goals */
+/* ---------------------------------------------------------------- 07: goals */
 .p-goals__beta { margin-left: auto !important; color: var(--paper-mute); }
 .p-goals__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 44px); margin: 0; }
 .p-goals__list > div { border-top: 1px solid var(--line-strong); padding-top: 18px; }
@@ -244,20 +196,34 @@
 .p-goals__note span { display: block; margin-bottom: 6px; font: 500 11px/1 var(--f-mono); letter-spacing: .12em; color: var(--seen); }
 @media (max-width: 900px) { .p-goals__list { grid-template-columns: 1fr; } }
 
-/* ---------------------------------------------------------------- 12: credits */
+/* ---------------------------------------------------------------- 08: credits */
 .p-credits__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); }
 .p-credits h3 { margin: 0 0 14px; font: 500 12px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--seen); }
 .p-credits p { margin: 0 0 10px; color: var(--paper-dim); font-size: 15px; line-height: 1.45; }
 .p-credits p b { color: var(--paper); font-weight: 600; }
 .p-credits a { color: var(--paper-dim); }
 @media (max-width: 900px) { .p-credits__cols { grid-template-columns: 1fr; } }
+.p-credits__all { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 14px; }
+.p-credits__all summary { cursor: pointer; font: 500 12px/1.4 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--paper-dim); }
+.p-credits__all summary:hover { color: var(--paper); }
+.p-credits__all ul { columns: 3 260px; column-gap: 32px; margin: 16px 0 0; padding: 0; list-style: none; }
+.p-credits__all li { break-inside: avoid; margin: 0 0 6px; font: 400 11px/1.45 var(--f-mono); color: var(--paper-mute); }
+.p-credits__all li .k { color: var(--paper-dim); }
+.p-credits__all a { color: var(--paper-dim); }
 
-/* ---------------------------------------------------------------- 04: how a person is built */
+/* ---------------------------------------------------------------- 02: how a person is built */
 .p-steps__view { position: sticky; top: 0; height: 100svh; min-height: 640px; max-width: var(--max); margin: 0 auto;
   padding: 84px var(--gutter) 28px; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 18px; }
 .p-steps__count { margin-left: auto !important; color: var(--paper-mute); font-variant-numeric: tabular-nums; }
 .p-steps__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); min-height: 0; }
-.p-steps__list { list-style: none; margin: 0; padding: 0; align-self: center; }
+.p-steps__text { align-self: center; min-width: 0; }
+.p-steps__k { margin: 0 0 10px; font: 500 11px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--paper-mute); }
+.p-steps__sentence { margin: 0 0 clamp(16px, 3vh, 28px); max-width: 30em; font: 500 clamp(1.2rem, 1.75vw, 1.6rem)/1.38 var(--f-sans);
+  letter-spacing: -.01em; color: var(--paper-mute); }
+.p-steps__sentence .w { color: rgba(236, 234, 226, .3); transition: color .45s, box-shadow .45s; }
+.p-steps__sentence .w.is-done { color: var(--paper); }
+.p-steps__sentence .w.is-now { color: var(--seen); box-shadow: inset 0 -2px 0 var(--seen); }
+.p-steps__list { list-style: none; margin: 0; padding: 0; }
 .p-steps__list li { display: grid; grid-template-columns: 40px 1fr; padding: 10px 0; border-bottom: 1px solid var(--line); opacity: .32; transition: opacity .4s, padding .5s var(--ease-out); }
 .p-steps__list b { font: 500 12px/1.9 var(--f-mono); color: var(--seen); letter-spacing: .1em; }
 .p-steps__list h3 { margin: 0; font: 500 clamp(1.05rem, 1.5vw, 1.35rem)/1.3 var(--f-sans); transition: font-size .5s var(--ease-out); }
@@ -272,54 +238,21 @@
 .p-steps__bar i { flex: 1; height: 2px; background: var(--line-strong); overflow: hidden; }
 .p-steps__bar b { display: block; height: 100%; background: var(--seen); transform-origin: left; transform: scaleX(0); }
 @media (max-width: 900px) { .p-steps__grid { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); } .p-steps__list li:not(.is-on) { display: none; } }
+/* A short laptop screen: the sentence and the eight steps still fit beside her. */
+@media (max-height: 820px) and (min-width: 901px) {
+  .p-steps__sentence { font-size: clamp(1.05rem, 1.5vw, 1.35rem); margin-bottom: 14px; }
+  .p-steps__list li { padding: 6px 0; } .p-steps__list li.is-on { padding: 10px 0 12px; }
+}
+@media (max-height: 680px) and (min-width: 901px) { .p-steps__list li.is-on p { display: none; } }
 
-/* ---------------------------------------------------------------- 06: zoom */
-.p-zoom__view { position: sticky; top: 0; height: 100svh; min-height: 600px; overflow: hidden; }
-main .sect__head.p-zoom__head { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); top: 84px; margin: 0; }
-.p-zoom__hud { margin-left: auto !important; color: var(--seen) !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.p-zoom__head { gap: 18px; }
-.p-zoom__head .sect__kicker { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.p-zoom__stage { position: absolute; inset: 0; overflow: hidden; background: #1b1c1a; }
-.p-zoom__frame { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
-.p-zoom__frame img { display: block; width: 100%; height: 100%; }
-.p-zoom__bracket { position: absolute; left: 0; top: 0; pointer-events: none; opacity: 0; }
-.p-zoom__bracket::before, .p-zoom__bracket::after { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--seen); }
-.p-zoom__bracket::before { left: 0; top: 0; border-right: 0; border-bottom: 0; }
-.p-zoom__bracket::after { right: 0; bottom: 0; border-left: 0; border-top: 0; }
-.p-zoom__close { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none;
-  background: radial-gradient(45% 40% at 50% 86%, rgba(38, 41, 38, .95) 0%, rgba(18, 20, 18, .96) 60%, rgba(10, 11, 10, .98) 100%); }
-.p-zoom__text { position: absolute; z-index: 3; left: var(--gutter); bottom: clamp(28px, 7vh, 64px); margin: 0; width: min(20em, 80vw); height: 2.4em;
-  font: 500 clamp(1.4rem, 2.4vw, 2.2rem)/1.15 var(--f-sans); letter-spacing: -.015em; }
-.p-zoom__text span { position: absolute; left: 0; bottom: 0; width: 100%; opacity: 0; transform: translateY(12px); transition: opacity .6s, transform .8s var(--ease-out); }
-.p-zoom__text.is-a span:first-child, .p-zoom__text.is-b span:last-child { opacity: 1; transform: none; }
-
-/* ---------------------------------------------------------------- 07: before and after, the flipbook */
-.p-cast { max-width: var(--max); margin: 0 auto; padding: clamp(96px, 14vh, 160px) var(--gutter) 40px; }
-.p-curtain { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); cursor: ew-resize; touch-action: pan-y; user-select: none; }
-.p-curtain img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.p-curtain__line { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--seen); box-shadow: 0 0 18px rgba(198, 242, 78, .55); }
-.p-curtain__line i { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%;
-  display: grid; place-items: center; background: var(--seen); color: var(--ink-0); font: 600 16px/1 var(--f-mono); font-style: normal; }
-.p-curtain__k { position: absolute; top: 14px; margin: 0; padding: 6px 9px; background: rgba(10, 11, 10, .78); font: 400 12px/1 var(--f-mono); letter-spacing: .06em; }
-.p-curtain__k--a { left: 14px; color: var(--paper); }
-.p-curtain__k--b { right: 14px; color: var(--seen); }
-.p-flip { margin-top: clamp(48px, 8vh, 80px); }
-.p-flip__k { margin: 0 0 14px; font: 500 12px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--paper-dim); }
-.p-flip__row { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-.p-flip__cell { position: relative; margin: 0; border: 1px solid var(--line); opacity: .5; transition: opacity .4s, border-color .4s, box-shadow .4s; }
-.p-flip__cell img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
-.p-flip__cell figcaption { padding: 8px 9px; font: 400 11px/1.45 var(--f-mono); color: var(--paper-dim); min-height: 6.5em; }
-.p-flip__cell figcaption .k { color: var(--paper-mute); }
-.p-flip__cell.is-on { opacity: 1; border-color: var(--seen); box-shadow: 0 0 0 3px rgba(198, 242, 78, .15); }
-.p-flip__controls { display: flex; align-items: center; gap: 14px; margin-top: 16px; font: 400 12px/1 var(--f-mono); color: var(--paper-mute); }
-.p-flip__controls button { padding: 8px 12px; border: 1px solid var(--line-strong); background: none; color: var(--paper-dim); font: 500 12px/1 var(--f-mono); cursor: pointer; }
-.p-flip__controls input { flex: 1; accent-color: #c6f24e; }
-
-/* ---------------------------------------------------------------- 09: checks */
-.p-checks { max-width: var(--max); margin: 0 auto; padding: clamp(96px, 14vh, 160px) var(--gutter) 40px; }
+/* ---------------------------------------------------------------- 02, last row: the checks under the steps */
+.p-steps__checks { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) clamp(56px, 10vh, 110px); }
+.p-steps__checks-k { display: grid; grid-template-columns: 40px 1fr; align-items: baseline; margin: 0 0 18px; padding-top: 16px;
+  border-top: 1px solid var(--line); font: 500 clamp(1.6rem, 2.4vw, 2.2rem)/1.15 var(--f-sans); letter-spacing: -.01em; }
+.p-steps__checks-k b { font: 500 12px/1.9 var(--f-mono); color: var(--seen); letter-spacing: .1em; }
 .p-checks__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .p-check { margin: 0; border: 1px solid var(--line); background: var(--ink-1); }
-.p-check__stage { position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+.p-check__stage { position: relative; height: clamp(220px, 34vh, 320px); overflow: hidden;
   background: radial-gradient(60% 30% at 50% 88%, #222522 0%, var(--ink-1) 70%); }
 .p-check__stage img { position: absolute; left: 50%; bottom: 3%; height: 94%; width: auto; max-width: 96%; object-fit: contain; transform: translateX(-50%); }
 .p-check__stage img[data-after] { animation: check-after 3.6s var(--ease-io) infinite; }
@@ -331,6 +264,17 @@ main .sect__head.p-zoom__head { position: absolute; z-index: 3; left: var(--gutt
 @media (max-width: 900px) { .p-checks__row { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .p-check__stage img[data-before] { display: none; } .p-check__stage img[data-after] { animation: none; opacity: 1; } }
 
+/* ---------------------------------------------------------------- 05: before and now */
+.p-cast { max-width: var(--max); margin: 0 auto; padding: clamp(96px, 14vh, 160px) var(--gutter) 40px; }
+.p-curtain { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); cursor: ew-resize; touch-action: pan-y; user-select: none; }
+.p-curtain img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.p-curtain__line { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--seen); box-shadow: 0 0 18px rgba(198, 242, 78, .55); }
+.p-curtain__line i { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--seen); color: var(--ink-0); font: 600 16px/1 var(--f-mono); font-style: normal; }
+.p-curtain__k { position: absolute; top: 14px; margin: 0; padding: 6px 9px; background: rgba(10, 11, 10, .78); font: 400 12px/1 var(--f-mono); letter-spacing: .06em; }
+.p-curtain__k--a { left: 14px; color: var(--paper); }
+.p-curtain__k--b { right: 14px; color: var(--seen); }
+
 /* ---------------------------------------------------------------- the opening's lens: who is under the pointer */
 .p-lens { position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .2s; }
 .p-lens.is-on { opacity: 1; }
@@ -341,9 +285,8 @@ main .sect__head.p-zoom__head { position: absolute; z-index: 3; left: var(--gutt
 .p-lens .chip { position: absolute; left: 0; top: 0; border-color: var(--seen); font-size: 11px; }
 
 /* ---------------------------------------------------------------- arrivals: a section's rule draws itself, its lead rises */
-.js .p-lead, .js .p-compose__sentence, .js .p-goals__list > div, .js .p-machine__nodes li { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease-out), transform 1.2s var(--ease-out); }
-.js .is-in.p-lead, .js .is-in.p-compose__sentence, .js .p-goals__list > div.is-in, .js .p-machine__nodes li.is-in { opacity: 1; transform: none; }
-.p-machine__nodes li { transition-delay: calc(var(--i, 0) * 70ms) !important; }
+.js .p-lead, .js .p-goals__list > div { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease-out), transform 1.2s var(--ease-out); }
+.js .is-in.p-lead, .js .p-goals__list > div.is-in { opacity: 1; transform: none; }
 main .sect__head { position: relative; border-top-color: transparent; }
 main .sect__head::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: var(--line-strong);
   transform-origin: left; transform: scaleX(0); transition: transform 1.2s var(--ease-io); }
@@ -353,21 +296,6 @@ main .sect__head::after { content: ""; position: absolute; left: 0; top: -2px; w
 main .sect__head.is-in::after { animation: head-scan 1.2s var(--ease-io); }
 @keyframes head-scan { 0% { opacity: 1; transform: translateX(0); } 90% { opacity: 1; } 100% { opacity: 0; transform: translateX(calc(min(1320px, 100vw) - 120px)); } }
 @media (prefers-reduced-motion: reduce) {
-  .js .p-lead, .js .p-compose__sentence, .js .p-goals__list > div, .js .p-machine__nodes li { opacity: 1; transform: none; }
+  .js .p-lead, .js .p-goals__list > div { opacity: 1; transform: none; }
   main .sect__head::before { transform: none; } main .sect__head::after { display: none; }
 }
-
-/* ---------------------------------------------------------------- 10: the sentence travelling through the machine */
-.p-machine__nodes { position: relative; }
-.p-machine__chip { position: absolute; left: 0; top: 0; z-index: 2; pointer-events: none; transition: none; }
-.p-machine__nodes li { transition: border-color .4s, background .4s, opacity 1s var(--ease-out), transform 1.2s var(--ease-out); }
-.p-machine__nodes li.is-lit { border-color: var(--seen); background: #151913; }
-.p-machine__nodes li:nth-child(-n+4) { border-color: var(--line-strong); }
-.p-machine__nodes li.is-lit:nth-child(-n+4) { border-color: var(--seen); }
-.p-credits__all { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 14px; }
-.p-credits__all summary { cursor: pointer; font: 500 12px/1.4 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--paper-dim); }
-.p-credits__all summary:hover { color: var(--paper); }
-.p-credits__all ul { columns: 3 260px; column-gap: 32px; margin: 16px 0 0; padding: 0; list-style: none; }
-.p-credits__all li { break-inside: avoid; margin: 0 0 6px; font: 400 11px/1.45 var(--f-mono); color: var(--paper-mute); }
-.p-credits__all li .k { color: var(--paper-dim); }
-.p-credits__all a { color: var(--paper-dim); }

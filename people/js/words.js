@@ -1,6 +1,6 @@
-// A person's words in English, for the cards that open over them.
+// A person's words in English, for the cards that open over them and the sentence over the steps.
 
-const WHO = {
+export const WHO = {
   "female:toddler": "toddler", "male:toddler": "toddler", "female:child": "girl", "male:child": "boy",
   "female:teen": "teenage girl", "male:teen": "teenage boy", "female:adult": "woman", "male:adult": "man",
   "female:elderly": "older woman", "male:elderly": "older man",
@@ -18,7 +18,7 @@ const NICE = {
   cross: "crossing", shop: "shopping", play: "playing", work: "working", sell: "selling", ride: "riding",
   sit: "sitting", lie: "lying down", swim: "swimming",
 };
-const nice = (v) => NICE[v] || String(v).replace(/_/g, " ");
+export const nice = (v) => NICE[v] || String(v).replace(/_/g, " ");
 
 const EMPTY = new Set(["none", "na", "plain", "no", "average", "medium", "covered", "", undefined, null]);
 

@@ -1,4 +1,4 @@
-// Scene 8: the labels know the words. A piece of a cast: each person's mask fills from the feet up in its own
+// Scene 6: the labels know the words. A piece of a cast: each person's mask fills from the feet up in its own
 // colour, its box draws itself from two corners, and pointing at a person opens the sentence that wrote them.
 
 const COLOURS = ["#c6f24e", "#b69cff", "#ff6b35", "#7fd1cc", "#ffd666", "#f080aa", "#78beff", "#aae68c", "#ffa06e",

@@ -1,4 +1,4 @@
-// Scene 2: from a photo to a person. One real person after another as you scroll: the free photo closes in
+// Scene 4: from a photo to a person. One real person after another as you scroll: the free photo closes in
 // on them, the words the photo shows are written as chips, and our reconstruction rises from the feet up
 // and turns. Both are then shown at the drone's own pixels.
 

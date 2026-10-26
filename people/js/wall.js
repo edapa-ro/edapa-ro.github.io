@@ -1,4 +1,4 @@
-// Scene 5: the wall. Two thousand people written from words, nobody twice, drawn as one instanced batch per
+// Scene 3: the wall. Two thousand people written from words, nobody twice, drawn as one instanced batch per
 // texture sheet. A word (children, at work, hijab...) brings the people it finds forward and dims the rest; three
 // arrangements (a grid, the age pyramid, one sentence's people) move them like a flock: each person a little
 // after the one before, on --ease-out.

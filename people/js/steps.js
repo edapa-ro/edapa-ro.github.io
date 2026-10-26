@@ -1,6 +1,9 @@
-// Scene 4: how a person is built. Eight pictures of one person, one per step, each the step's own build; scrolling
+// Scene 2: how a person is built. Eight pictures of one person, one per step, each the step's own build; scrolling
 // carries one into the next. Most steps rise from the feet with a lime edge; the hijab sweeps across, column by
-// column, the way it is grown round the face.
+// column, the way it is grown round the face. Over the steps, the sentence she was written from: each step lights the
+// words it makes.
+
+import { WHO, nice } from "./words.js";
 
 const VS = `#version 300 es
 in vec2 p;
@@ -44,6 +47,48 @@ function compile(gl, type, src) {
 const clamp01 = (x) => Math.max(0, Math.min(1, x));
 const io3 = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
+// The person's sentence as words and the glue between them, each word with the step that makes it: the body brings
+// who she is and what she wears on top, the legs (when sewn) the bottom, the colour step the colours, and so on.
+const PATTERN = { stripes: "striped", checks: "checked", print: "printed", floral: "floral" };
+const BUILD = { slim: "slim", stocky: "stocky", heavy: "heavy-set" };
+const NONE = new Set(["none", "na", "plain", "medium", "average", "covered", "", undefined, null]);
+function sentence(w, steps) {
+  const at = (...kinds) => Math.max(0, ...kinds.map((k) => steps.indexOf(k)));
+  const out = [];
+  const word = (text, step) => out.push({ text, step });
+  const glue = (text) => out.push({ text });
+  const a = (next) => (/^[aeiou]/i.test(next) ? "an" : "a");
+  const height = NONE.has(w.height) ? "" : nice(w.height);
+  const build = BUILD[w.build] || "";
+  const who = WHO[`${w.sex}:${w.age}`] || "person";
+  const first = height || build || who;
+  glue(a(first).replace(/^a/, "A"));
+  if (height) word(height, at("body"));
+  if (height && build) glue(",");
+  if (build) word(build, at("build"));
+  word(who, at("body"));
+  if (!NONE.has(w.top)) {
+    const shade = [w.top_colour, PATTERN[w.top_pattern]].filter((v) => !NONE.has(v)).map(nice).join(" ");
+    glue("in " + a(shade || nice(w.top)));
+    if (shade) word(shade, at("colour"));
+    word(nice(w.top), at("body"));
+  }
+  if (!NONE.has(w.bottom)) {
+    glue("and");
+    if (!NONE.has(w.bottom_colour)) word(nice(w.bottom_colour), at("colour"));
+    word(nice(w.bottom), at("waist", "body"));
+  }
+  const extras = [];
+  if (!NONE.has(w.headwear)) extras.push([nice(w.headwear), at("hijab", "body")]);
+  if (!NONE.has(w.back)) extras.push([nice(w.back), at("backpack")]);
+  extras.forEach(([text, step], i) => { glue((i ? "and " : ", ") + a(text)); word(text, step); });
+  if (!NONE.has(w.activity)) { glue(","); word(nice(w.activity), at("pose")); }
+  const held = [w.both_hands, w.right_hand, w.left_hand].find((v) => !NONE.has(v));
+  if (held) { glue("with " + a(nice(held))); word(nice(held), at("hands")); }
+  glue(".");
+  return out;
+}
+
 export async function initSteps(root, { reduced }) {
   if (root.dataset.started) return;
   root.dataset.started = "1";
@@ -56,6 +101,14 @@ export async function initSteps(root, { reduced }) {
     second.querySelector("h3").textContent = "Legs";
     second.querySelector("p").textContent = "Another avatar's legs, sewn on 2 cm above the hips, the cut hidden under the waistband.";
   }
+  const sentenceEl = root.querySelector("[data-steps-sentence]");
+  if (meta.words) {
+    sentenceEl.innerHTML = sentence(meta.words, meta.steps)
+      .map((t) => (t.step === undefined ? t.text : `<span class="w" data-step="${t.step}">${t.text}</span>`))
+      .join(" ").replace(/ ([,.])/g, "$1");
+  }
+  const wordEls = [...sentenceEl.querySelectorAll("[data-step]")];
+  let lit = -1;
   const countEl = root.querySelector("[data-steps-count]");
   const bar = root.querySelector("[data-steps-bar]");
   const canvas = root.querySelector("[data-steps-canvas]");
@@ -123,6 +176,14 @@ export async function initSteps(root, { reduced }) {
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     const shown = t > 0.5 ? b : a;
     list.forEach((li, i) => li.classList.toggle("is-on", i === shown));
+    if (shown !== lit) {
+      lit = shown;
+      wordEls.forEach((el) => {
+        const s = Number(el.dataset.step);
+        el.classList.toggle("is-done", s < shown);
+        el.classList.toggle("is-now", s === shown);
+      });
+    }
     bars.forEach((el, i) => { el.style.transform = `scaleX(${i < k ? 1 : i === k ? clamp01(f / 0.55) : 0})`; });
     countEl.textContent = `step ${shown + 1} of ${meta.steps.length}`;
     requestAnimationFrame(frame);

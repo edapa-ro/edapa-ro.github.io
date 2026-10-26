@@ -19,20 +19,7 @@ initHero(hero, { reduced, onReady: ready }).catch((err) => {
 });
 setTimeout(ready, reduced ? 0 : 5000);
 
-// ---------------------------------------------------------------- 02: from a photo to a person
-// (loaded when it comes near, with the others below)
-
-// ---------------------------------------------------------------- 03: write a person, loaded when it comes near
-const compose = document.querySelector("[data-compose]");
-const composeIo = new IntersectionObserver((entries) => {
-  if (!entries.some((e) => e.isIntersecting)) return;
-  composeIo.disconnect();
-  import("./compose.js").then((m) => m.initCompose(compose, { reduced }))
-    .catch((err) => console.warn("composer unavailable:", err));
-}, { rootMargin: "600px 0px" });
-composeIo.observe(compose);
-
-// ---------------------------------------------------------------- 05: the wall, loaded when it comes near
+// ---------------------------------------------------------------- 03: the wall, loaded when it comes near
 const wall = document.querySelector("[data-wall]");
 const wallIo = new IntersectionObserver((entries) => {
   if (!entries.some((e) => e.isIntersecting)) return;
@@ -41,7 +28,7 @@ const wallIo = new IntersectionObserver((entries) => {
 }, { rootMargin: "600px 0px" });
 wallIo.observe(wall);
 
-// ---------------------------------------------------------------- 04, 06, 07, 09: each loaded when it comes near
+// ---------------------------------------------------------------- 02, 04, 05, 06: each loaded when it comes near
 function whenNear(sel, load) {
   const el = document.querySelector(sel);
   if (!el) return;
@@ -54,24 +41,21 @@ function whenNear(sel, load) {
 }
 whenNear("[data-real]", (el) => initReal(el, { reduced }));
 whenNear("[data-steps]", (el) => import("./steps.js").then((m) => m.initSteps(el, { reduced })));
-whenNear("[data-zoom]", (el) => import("./zoom.js").then((m) => m.initZoom(el, { reduced })));
-whenNear(".p-machine", (el) => import("./machine.js").then((m) => m.initMachine(el, { reduced })));
-whenNear("[data-cast]", (el) => import("./cast.js").then((m) => m.initCast(el, { reduced, words: cardWords })));
+whenNear("[data-cast]", (el) => import("./cast.js").then((m) => m.initCast(el)));
+whenNear("[data-labels]", (el) => import("./labels.js").then((m) => m.initLabels(el, { reduced, words: cardWords })));
+// The checks under the steps: each a before and an after picture.
 document.querySelectorAll("[data-check]").forEach((f) => {
   f.querySelector("[data-before]").src = `assets/checks/${f.dataset.check}_before.webp`;
   f.querySelector("[data-after]").src = `assets/checks/${f.dataset.check}_after.webp`;
 });
 
-// ---------------------------------------------------------------- 08: the labels
-whenNear("[data-labels]", (el) => import("./labels.js").then((m) => m.initLabels(el, { reduced, words: cardWords })));
-
-// ---------------------------------------------------------------- 12: the photos' credits, from the real people's file
+// ---------------------------------------------------------------- 08: the photos' credits, from the real people's file
 fetch("assets/real/real.json").then((r) => r.json()).then((data) => {
   document.querySelector("[data-photo-credits]").innerHTML = "<p>Wikimedia Commons, each with its author and licence:</p>" +
     data.map((d) => `<p><a href="${d.credit.url}" rel="noopener">${d.credit.author}</a> · ${d.credit.licence}</p>`).join("");
 }).catch(() => {});
 
-// ---------------------------------------------------------------- 12: every CC BY model, listed when opened
+// ---------------------------------------------------------------- 08: every CC BY model, listed when opened
 const modelCredits = document.querySelector("[data-model-credits]");
 if (modelCredits) {
   fetch("assets/credits.json").then((r) => r.json()).then((rows) => {
@@ -130,8 +114,8 @@ if (matchMedia("(hover: hover) and (pointer: fine)").matches && !reduced) {
   };
   const go = () => { if (!raf) raf = requestAnimationFrame(tick); };
   window.addEventListener("pointermove", (e) => {
-    // Over the pictures that answer the pointer themselves (the wall, the labels, a 3D person), no box.
-    const own = e.target.closest("[data-gl], .p-hero__tags, [data-wall-canvas], [data-labels-canvas], [data-compose-canvas], [data-curtain]");
+    // Over the pictures that answer the pointer themselves (the opening, the wall, the labels, the curtain), no box.
+    const own = e.target.closest("[data-gl], .p-hero__tags, [data-wall-canvas], [data-labels-canvas], [data-curtain]");
     c.classList.toggle("is-hidden", Boolean(own));
     const t = e.target.closest("a, button");
     if (t) {
@@ -156,7 +140,4 @@ const arrive = new IntersectionObserver((entries) => {
     arrive.unobserve(e.target);
   }
 }, { rootMargin: "0px 0px -12% 0px" });
-document.querySelectorAll("main .sect__head, .p-lead, .p-compose__sentence, .p-goals__list > div, .p-machine__nodes li").forEach((el, i) => {
-  if (el.matches(".p-machine__nodes li")) el.style.setProperty("--i", [...el.parentNode.children].indexOf(el));
-  arrive.observe(el);
-});
+document.querySelectorAll("main .sect__head, .p-lead, .p-goals__list > div").forEach((el) => arrive.observe(el));
