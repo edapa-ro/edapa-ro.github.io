@@ -183,7 +183,7 @@ export async function initHero(root, { reduced, onReady }) {
     // Three new people get their words, spread over the wave.
     const picks = Object.values(B.meta.slots)
       .map((p) => ({ p, d: dist(p.centre, origin), xy: toScreen(...p.centre) }))
-      .filter((q) => q.d > 0.06 && q.xy[0] > cw * 0.42 && q.xy[0] < cw * 0.95 && q.xy[1] > ch * 0.16 && q.xy[1] < ch * 0.72)
+      .filter((q) => q.d > 0.06 && q.xy[0] > cw * 0.42 && q.xy[0] < cw * 0.86 && q.xy[1] > ch * 0.26 && q.xy[1] < ch * 0.72)
       .sort(() => Math.random() - 0.5).slice(0, 3);
     tagsEl.textContent = "";
     const tags = picks.map((q) => {
