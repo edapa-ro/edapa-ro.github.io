@@ -1,6 +1,6 @@
 // Behaviour of the page below the opening: the layer story, the place cards.
 
-const FRAMES = ["dubrovnik-004170", "cairo-006907", "bologna-010404", "quarry-007165", "farm-011318"];
+const FRAMES = ["dubrovnik-004170", "cairo-006907", "bologna-010404", "quarry-007165", "farm-011318", "paris-000030"];
 const LABELS = ["01 · The frame", "02 · Each person", "03 · Two boxes", "04 · Skeleton", "05 · The hidden part", "06 · Distance"];
 
 export function initSections({ reduced }) {

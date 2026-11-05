@@ -1,4 +1,4 @@
-// The opening. A wall of real frames from all five places; a sweep that lights up the
+// The opening. A wall of real frames from all six places (Paris's from test captures); a sweep that lights up the
 // labelled people in them; a dive into one frame, which hovers like a drone over its own
 // depth; then its ground truth unfolds over the whole frame, layer by layer, and the camera
 // closes in on one partly hidden person until their pixels show. Then out, and on to the
@@ -10,7 +10,11 @@ const FRAMES = [
   { place: "Bologna", slug: "bologna-010404" },
   { place: "Quarry", slug: "quarry-007165" },
   { place: "Farm", slug: "farm-011318" },
+  // Paris has test captures only, and its people are posed meshes without a rig: no skeleton to show, so its reel
+  // shows the boxes where the others show the skeleton.
+  { place: "Paris", slug: "paris-000030", noSkeleton: true, reel: [[1.3, 1], [5.0, 3], [8.4, 5], [11.6, 1, true]] },
 ];
+const NO_SKELETON = "no skeleton here: this place&rsquo;s people are posed meshes without a rig";
 // Layer 0 is the plain frame; 1–5 match the buttons and the keys 1–5.
 const LAYERS = [
   { name: "The frame", legend: "the delivered frame, as a detector sees it" },
@@ -405,6 +409,7 @@ export async function initStage(root, { reduced, onReady }) {
     state.star = state.candidates[0] || f.meta.people[0];     // the person the camera will close in on
     fillHud(root, f.meta);
     sceneButtons.forEach((b, k) => b.setAttribute("aria-current", String(k === i)));
+    if (currentLayer() === 4) legend.innerHTML = FRAMES[i].noSkeleton ? NO_SKELETON : LAYERS[4].legend;
   }
 
   // --- cameras, all in wall units: a frame's tile is 1 wide, so 1 frame pixel is 1/IW
@@ -483,7 +488,7 @@ export async function initStage(root, { reduced, onReady }) {
   function setLayer(L, { instant = false } = {}) {
     const shown = state.wipeT0 != null ? state.layerB : state.layerA;
     layerButtons.forEach((b) => b.setAttribute("aria-checked", String(Number(b.dataset.mode) + 1 === L)));
-    legend.innerHTML = LAYERS[L].legend;
+    legend.innerHTML = L === 4 && FRAMES[state.i] && FRAMES[state.i].noSkeleton ? NO_SKELETON : LAYERS[L].legend;
     tagLayer.textContent = LAYERS[L].name;
     if (L === shown) return;
     if (instant || reduced) { state.layerA = state.layerB = L; state.wipeT0 = null; state.wipe = 0; }
@@ -578,7 +583,7 @@ export async function initStage(root, { reduced, onReady }) {
       setLayer(L);
       if (closeIn && state.star) zoomTo(state.star, false);
     };
-    for (const [s, L, closeIn] of REEL) at(s, step(L, closeIn));
+    for (const [s, L, closeIn] of FRAMES[state.i].reel || REEL) at(s, step(L, closeIn));
   }
 
   // --- the loop runs while something moves; the hover keeps it running on a frame

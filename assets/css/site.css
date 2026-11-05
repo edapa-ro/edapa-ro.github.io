@@ -559,7 +559,7 @@ kbd { font: inherit; }
 /* 04: the five places */
 .places { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
 .place { grid-column: span 2; }
-.place:nth-child(1), .place:nth-child(2) { grid-column: span 3; }
+.place__test { margin-left: .4em; font: 500 10px/1 var(--f-mono, monospace); letter-spacing: .1em; text-transform: uppercase; color: var(--paper-mute, #9a9a90); vertical-align: middle; }
 .place__img {
   position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--line); background: var(--ink-1);
   aspect-ratio: 4 / 3; overflow: hidden; cursor: pointer;
