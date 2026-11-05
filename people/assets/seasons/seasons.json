@@ -1,0 +1,266 @@
+{
+ "summer": [
+  {
+   "file": "summer_0.webp",
+   "w": 338,
+   "h": 347,
+   "s": 0.789,
+   "alt": "A boy in a light grey polo shirt and a cap, holding a cup.",
+   "uid": "paris_paris_summer_v1_00_01_132_p02223"
+  },
+  {
+   "file": "summer_1.webp",
+   "w": 433,
+   "h": 364,
+   "s": 0.827,
+   "alt": "A woman in a black polo shirt and a hat.",
+   "uid": "paris_paris_summer_v1_01_00_20_p00486"
+  },
+  {
+   "file": "summer_2.webp",
+   "w": 391,
+   "h": 395,
+   "s": 0.898,
+   "alt": "A man in a black T-shirt and a hat, holding a cup.",
+   "uid": "paris_paris_summer_v1_01_01_000_p03210"
+  },
+  {
+   "file": "summer_3.webp",
+   "w": 365,
+   "h": 371,
+   "s": 0.843,
+   "alt": "An elderly man in a red blazer and a cap, holding something to eat.",
+   "uid": "paris_paris_summer_v1_01_01_002_p03561"
+  },
+  {
+   "file": "summer_4.webp",
+   "w": 354,
+   "h": 367,
+   "s": 0.834,
+   "alt": "A woman in a beige blazer and a cap, holding a cup.",
+   "uid": "paris_paris_summer_v1_00_01_3_p02388"
+  },
+  {
+   "file": "summer_5.webp",
+   "w": 392,
+   "h": 431,
+   "s": 0.98,
+   "alt": "A man in a white long robe and a cap, holding a cup.",
+   "uid": "paris_paris_summer_v1_00_01_131_p01560"
+  },
+  {
+   "file": "summer_6.webp",
+   "w": 334,
+   "h": 352,
+   "s": 0.8,
+   "alt": "A woman in a black T-shirt, holding a cup.",
+   "uid": "paris_paris_summer_v1_00_01_112_p02908"
+  },
+  {
+   "file": "summer_7.webp",
+   "w": 362,
+   "h": 371,
+   "s": 0.843,
+   "alt": "An elderly woman in a beige T-shirt, holding a cup.",
+   "uid": "paris_paris_summer_v1_00_00_312_p02520"
+  }
+ ],
+ "autumn_rain": [
+  {
+   "file": "autumn_rain_0.webp",
+   "w": 347,
+   "h": 326,
+   "s": 0.741,
+   "alt": "A boy in a raincoat and the hood up.",
+   "uid": "paris_paris_autumn_rain_v1_00_00_p00477"
+  },
+  {
+   "file": "autumn_rain_1.webp",
+   "w": 454,
+   "h": 416,
+   "s": 0.945,
+   "alt": "A woman in a raincoat and the hood up, holding an umbrella.",
+   "uid": "paris_paris_autumn_rain_v1_00_00_p00575"
+  },
+  {
+   "file": "autumn_rain_2.webp",
+   "w": 408,
+   "h": 389,
+   "s": 0.884,
+   "alt": "A man in a raincoat and the hood up.",
+   "uid": "paris_paris_autumn_rain_v1_01_01_p00133"
+  },
+  {
+   "file": "autumn_rain_3.webp",
+   "w": 446,
+   "h": 382,
+   "s": 0.868,
+   "alt": "An elderly woman in a raincoat and the hood up, holding an umbrella.",
+   "uid": "paris_paris_autumn_rain_v1_01_00_p00334"
+  },
+  {
+   "file": "autumn_rain_4.webp",
+   "w": 454,
+   "h": 438,
+   "s": 0.995,
+   "alt": "A woman in an open jacket and a cap, holding an umbrella.",
+   "uid": "paris_paris_autumn_rain_v1_00_00_p00229"
+  },
+  {
+   "file": "autumn_rain_5.webp",
+   "w": 432,
+   "h": 456,
+   "s": 1.036,
+   "alt": "A man in an open jacket, holding an umbrella.",
+   "uid": "paris_paris_autumn_rain_v1_00_01_p00253"
+  },
+  {
+   "file": "autumn_rain_6.webp",
+   "w": 368,
+   "h": 349,
+   "s": 0.793,
+   "alt": "A woman in a raincoat and the hood up.",
+   "uid": "paris_paris_autumn_rain_v1_00_00_p00691"
+  },
+  {
+   "file": "autumn_rain_7.webp",
+   "w": 423,
+   "h": 411,
+   "s": 0.934,
+   "alt": "An elderly man in a raincoat and the hood up, holding an umbrella.",
+   "uid": "paris_paris_autumn_rain_v1_00_00_p00524"
+  }
+ ],
+ "winter_fog": [
+  {
+   "file": "winter_fog_0.webp",
+   "w": 419,
+   "h": 375,
+   "s": 0.852,
+   "alt": "A teenage boy in a heavy coat and a beanie, holding a bag.",
+   "uid": "paris_paris_winter_fog_v1_01_01_p00171"
+  },
+  {
+   "file": "winter_fog_1.webp",
+   "w": 332,
+   "h": 342,
+   "s": 0.777,
+   "alt": "A woman in an open jacket and a beanie, holding a phone.",
+   "uid": "paris_paris_winter_fog_v1_01_01_p00045"
+  },
+  {
+   "file": "winter_fog_2.webp",
+   "w": 403,
+   "h": 430,
+   "s": 0.977,
+   "alt": "A man in a heavy coat and a warm scarf, holding a phone.",
+   "uid": "paris_paris_winter_fog_v1_01_00_p00265"
+  },
+  {
+   "file": "winter_fog_3.webp",
+   "w": 361,
+   "h": 359,
+   "s": 0.816,
+   "alt": "An elderly man in a heavy coat, a warm scarf and a beanie.",
+   "uid": "paris_paris_winter_fog_v1_01_01_p00350"
+  },
+  {
+   "file": "winter_fog_4.webp",
+   "w": 360,
+   "h": 366,
+   "s": 0.832,
+   "alt": "A woman in an open jacket, a warm scarf and a beanie, holding a bag.",
+   "uid": "paris_paris_winter_fog_v1_01_00_p00321"
+  },
+  {
+   "file": "winter_fog_5.webp",
+   "w": 410,
+   "h": 419,
+   "s": 0.952,
+   "alt": "A man in an open jacket, a warm scarf and a beanie, holding a bag.",
+   "uid": "paris_paris_winter_fog_v1_00_01_p00486"
+  },
+  {
+   "file": "winter_fog_6.webp",
+   "w": 390,
+   "h": 398,
+   "s": 0.905,
+   "alt": "A woman in a heavy coat.",
+   "uid": "paris_paris_winter_fog_v1_00_00_p00524"
+  },
+  {
+   "file": "winter_fog_7.webp",
+   "w": 364,
+   "h": 377,
+   "s": 0.857,
+   "alt": "An elderly man in a heavy coat and a beanie, holding a phone.",
+   "uid": "paris_paris_winter_fog_v1_01_01_p00387"
+  }
+ ],
+ "winter_night": [
+  {
+   "file": "winter_night_0.webp",
+   "w": 390,
+   "h": 409,
+   "s": 0.93,
+   "alt": "A teenage boy in a heavy coat, holding a phone.",
+   "uid": "paris_paris_winter_night_v1_00_01_p00159"
+  },
+  {
+   "file": "winter_night_1.webp",
+   "w": 335,
+   "h": 347,
+   "s": 0.789,
+   "alt": "A woman in a heavy coat, a warm scarf and a beanie, holding a bag.",
+   "uid": "paris_paris_winter_night_v1_00_01_p00355"
+  },
+  {
+   "file": "winter_night_2.webp",
+   "w": 386,
+   "h": 390,
+   "s": 0.886,
+   "alt": "A man in a heavy coat and a warm scarf, holding a phone.",
+   "uid": "paris_paris_winter_night_v1_00_01_p00252"
+  },
+  {
+   "file": "winter_night_3.webp",
+   "w": 419,
+   "h": 434,
+   "s": 0.986,
+   "alt": "An elderly man in a heavy coat, holding a bag.",
+   "uid": "paris_paris_winter_night_v1_00_00_p00238"
+  },
+  {
+   "file": "winter_night_4.webp",
+   "w": 396,
+   "h": 386,
+   "s": 0.877,
+   "alt": "A woman in an open jacket, a warm scarf and a cap, holding a cup.",
+   "uid": "paris_paris_winter_night_v1_00_00_p00041"
+  },
+  {
+   "file": "winter_night_5.webp",
+   "w": 404,
+   "h": 418,
+   "s": 0.95,
+   "alt": "A man in a heavy coat and a beanie.",
+   "uid": "paris_paris_winter_night_v1_00_01_p00277"
+  },
+  {
+   "file": "winter_night_6.webp",
+   "w": 367,
+   "h": 364,
+   "s": 0.827,
+   "alt": "A woman in a heavy coat and a beanie, holding a phone.",
+   "uid": "paris_paris_winter_night_v1_piazza_p00412"
+  },
+  {
+   "file": "winter_night_7.webp",
+   "w": 390,
+   "h": 392,
+   "s": 0.891,
+   "alt": "An elderly man in an open jacket and a beanie, holding a phone.",
+   "uid": "paris_paris_winter_night_v1_00_01_p00188"
+  }
+ ]
+}
